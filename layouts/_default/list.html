@@ -1,0 +1,70 @@
+{{ define "main" }}
+
+
+<main id="maincontent">
+    <article class="grid-container">
+        <header class="hero" data-hero-type="standard" data-no-margin="true" data-section-nav="false"
+            data-hashtag="false">
+            <div class="inner">
+                <div class="background">
+                    <picture>
+                        {{ with .Params.header_image }}
+                        <div class="header-image">
+                            <img src="{{ . }}" alt="{{ $.Title }}" width="1680" height="978">
+                        </div>
+                        {{ end }}
+                    </picture>
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <h1 class="h1 -small">{{ $.Title }}</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="faceted-search resources">
+            <div class="faceted-search-inner">
+                <div class="faceted-search-content">
+                    <div class="faceted-search-content-inner">
+                        <div class="faceted-search-results" style="margin-top: 1rem;">
+                            <div class="faceted-search-results-inner">
+                                {{ range (.Paginate .RegularPagesRecursive).Pages }}
+                                <article class="item js-link-event">
+                                    <a href="{{ .Permalink }}" class="js-link-event-link">
+                                        {{ with .Params.header_image }}
+                                        <picture>
+                                            <img src="{{ . }}" width="475" height="350" alt="{{ $.Title }}"
+                                                loading="lazy">
+                                        </picture>
+                                        {{ end }}
+                                        <div class="item-top">
+                                            <h3 class="h4">
+                                                {{ .Title }}
+                                            </h3>
+                                            <p>{{ .Params.description }}</p>
+                                        </div>
+                                        <div class="item-bottom">
+                                            <span class="btn -go">
+                                            </span>
+                                        </div>
+                                    </a>
+                                </article>
+                                {{ end }}
+                            </div>
+                            <svg class="scribble-stroke" viewBox="0 0 1979 1509" aria-hidden="true">
+                                <use xlink:href="#scribble-stroke-path">
+                                </use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+
+
+
+
+</div>
+{{ end }}

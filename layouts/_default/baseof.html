@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/naacp/naacp1.css">
+    <link rel="stylesheet" href="/naacp/naacp2.css">
+    <link rel="stylesheet" href="/naacp/naacp3.css">
+    <title>{{ block "title" . }}
+        {{ .Site.Title }}
+        {{ end }}</title>
+</head>
+
+<body>
+    {{ partial "navbar.html" . }}
+    {{ block "main" . }}
+    <!-- The part of the page that begins to differ between templates -->
+    {{ end }}
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

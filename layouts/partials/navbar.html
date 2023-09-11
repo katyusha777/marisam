@@ -1,0 +1,32 @@
+<header class="site-header">
+    <div class="site-header-top-bar">
+        <!-- Hugo loop for generating section navigation -->
+        <nav class="site-header-section-toggle" aria-label="Section Navigation">
+            <ul class="site-header-section-toggle-items">
+                {{ range .Site.Menus.section }}
+                <li class="site-header-section-toggle-item">
+                    <a href="{{ .URL }}" class="site-header-section-toggle-link">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+    <div class="site-header-inner">
+        <!-- Hugo variable for logo -->
+        <a href="/" class="site-header-logo">
+            <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}">
+        </a>
+        <!-- Hugo loop for generating main navigation -->
+        <nav class="site-header-nav" aria-label="Main Site Navigation">
+            <ul>
+                {{ range .Site.Menus.main }}
+                <li class="site-header-nav-main-item">
+                    <a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+        <!-- Hugo variable for donate link -->
+        <a href="/donate" class="site-header-donate btn -plain">Donate</a>
+    </div>
+</header>
