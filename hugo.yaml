@@ -1,0 +1,17 @@
+baseURL: "https://example.org/"
+languageCode: en-us
+title: National Political Prisoner Coalition
+theme: marisam
+
+Params:
+  copyright: "2023 National Political Prisoner Coalition"
+  footerLinks:
+    - name: "About"
+      href: "/about"
+    - name: "Privacy"
+      href: "/privacy"
+
+  database:
+    views:
+      - viw970eeOB3tW69x6
+      - viwgQZE51zSijLtvL

@@ -3,26 +3,86 @@
     <div class="inner">
         <div class="background -animated fadeIn" data-animation="fadeIn" data-animation-delay="100"
             data-animation-duration="1500" style="animation-delay: 100ms; animation-duration: 1500ms;">
-            <picture>
-                <source
-                    srcset="/sites/default/files/styles/hero_desktop/public/images/iStock-1196015209.webp?itok=Ut0yt-ai"
-                    type="image/webp"><img
-                    src="/sites/default/files/styles/hero_desktop/public/images/iStock-1196015209.jpg?itok=Ut0yt-ai"
-                    width="1680" height="978" alt="Happy Construction Coworkers Sharing a Hug">
-            </picture>
+            <div class="background -animated fadeIn" data-animation="fadeIn" data-animation-delay="100"
+                data-animation-duration="1500" style="animation-delay: 100ms; animation-duration: 1500ms;">
+                <video autoplay loop muted playsinline class="video-background">
+                    <source src="/videos/home/video.mp4" type="video/mp4">
+                    <source src="/videos/home/video.webm" type="video/webm">
+                </video>
+            </div>
+
         </div>
         <div class="content">
             <div class="text">
-                <h1 class="h1 naacp-title"><a href="/events/labor-action-week" title="Labor Action">
-                        <div class="top-text -animated fadeInUp" data-animation="fadeInUp" data-animation-delay="750"
-                            data-animation-duration="1500" style="animation-delay: 750ms; animation-duration: 1500ms;">
-                            <span>Labor Action</span></div>
-                        <div class="highlight -animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1000"
-                            data-animation-duration="1500" style="animation-delay: 1000ms; animation-duration: 1500ms;">
-                            <span>Week</span></div>
-                    </a></h1>
+                <h1 class="h1 naacp-title">
+                    <div class="top-text -animated fadeInUp" data-animation="fadeInUp" data-animation-delay="750"
+                        data-animation-duration="1500" style="animation-delay: 750ms; animation-duration: 1500ms;">
+                        <span>Justice</span>
+                    </div>
+                    <div class="highlight -animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1000"
+                        data-animation-duration="1500" style="animation-delay: 1000ms; animation-duration: 1500ms;">
+                        <span>No Matter What </span>
+                    </div>
+                </h1>
             </div>
         </div>
     </div>
 </header>
+
+
+<article class="fifty-fifty">
+    <div class="inner">
+        <div class="text">
+            <header>
+                <h2 class="h2">{{ .Params.section_1.title }}</h2>
+            </header>
+            <div class="wysiwyg-content">
+                <p>{{ .Params.section_1.text }}</p>
+            </div>
+            <div class="cta-link">
+                <a href="{{ .Params.section_1.url }}" class="btn">{{ .Params.section_1.buttonTitle }}</a>
+            </div>
+        </div>
+        <div class="image">
+            <img style="border-radius: 12px;" src="{{ .Params.section_1.image }}" width="590" height="590"
+                alt="Image alt text" loading="lazy">
+        </div>
+    </div>
+</article>
+
+<article class="fifty-fifty">
+    <div class="inner">
+        <div class="image">
+            <img style="border-radius: 12px;" src="{{ .Params.section_2.image }}" width="590" height="590"
+                alt="Image alt text" loading="lazy">
+        </div>
+        <div class="text">
+            <header>
+                <h2 class="h2">{{ .Params.section_2.title }}</h2>
+            </header>
+            <div class="wysiwyg-content">
+                <p>{{ .Params.section_2.text }}</p>
+            </div>
+            <div class="cta-link">
+                <a href="{{ .Params.section_2.url }}" class="btn">{{ .Params.section_2.buttonTitle }}</a>
+            </div>
+        </div>
+    </div>
+</article>
+
+{{ range .Params.testimonials }}
+<article class="testimonial" style="margin-bottom:0;border-radius:0">
+    <div class="inner">
+        <div class="photo">
+            <img style="border-radius: 1000px;" src="{{ .image }}" width="300" height="300" alt="Image alt text"
+                loading="lazy">
+        </div>
+        <div class="text">
+            <p>{{ .quote }}</p>
+            <cite>{{ .title }}</cite>
+        </div>
+    </div>
+</article>
+{{ end }}
+
 {{ end }}

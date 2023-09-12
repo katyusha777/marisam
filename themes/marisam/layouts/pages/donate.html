@@ -1,0 +1,38 @@
+{{ define "main" }}
+<main id="maincontent">
+    <article class="grid-container" style="margin-bottom: 2rem;">
+        <header class="hero" data-hero-type="resource-detail" data-no-margin="false" data-section-nav="false"
+            data-hashtag="false">
+            <div class="inner">
+                <div class="background">
+                    <picture>
+                        {{ with .Params.header_image }}
+                        <img src="{{ . }}" alt="{{ $.Title }}" width="1680" height="978">
+                        {{ end }}
+                    </picture>
+
+
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <h1 class="h1 -small">{{ $.Title }}</h1>
+                    </div>
+                    <div class="hero-inset">
+                        <picture>
+                            {{ with .Params.header_image }}
+                            <img src="{{ . }}" alt="{{ $.Title }}" width="1680" height="978">
+                            {{ end }}
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        {{ partial "donate.html" . }}
+
+
+
+    </article>
+</main>
+{{ end }}

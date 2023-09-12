@@ -1,0 +1,14 @@
+baseURL: "https://nationalpoliticalprisonercoalition.org/"
+languageCode: en-us
+title: National Political Prisoner Coalition
+menus:
+  main:
+    - name: Press Releases
+      pageRef: /press_releases
+      weight: 10
+    - name: News
+      pageRef: /news
+      weight: 20
+module:
+  hugoVersion:
+    extended: false
