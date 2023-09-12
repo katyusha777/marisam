@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Justice for Political Prisoners in America on National Political Prisoner Coalition</title>
-    <link>https://example.org/</link>
+    <link>https://national-political-prisoner-coalition.pages.dev/</link>
     <description>Recent content in Justice for Political Prisoners in America on National Political Prisoner Coalition</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate><atom:link href="https://national-political-prisoner-coalition.pages.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Post 3</title>
-      <link>https://example.org/posts/post-3/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/posts/post-3/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       
-      <guid>https://example.org/posts/post-3/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/posts/post-3/</guid>
       <description>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum.</description>
     </item>
     
     <item>
       <title>Post 2</title>
-      <link>https://example.org/posts/post-2/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/posts/post-2/</link>
       <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
       
-      <guid>https://example.org/posts/post-2/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/posts/post-2/</guid>
       <description>Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.
 Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia.</description>
     </item>
     
     <item>
       <title>Post 1</title>
-      <link>https://example.org/posts/post-1/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/posts/post-1/</link>
       <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
       
-      <guid>https://example.org/posts/post-1/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/posts/post-1/</guid>
       <description>Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.
 Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea.</description>
     </item>
     
     <item>
       <title>My 2nd Post</title>
-      <link>https://example.org/news/my-second-post/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/news/my-second-post/</link>
       <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate>
       
-      <guid>https://example.org/news/my-second-post/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/news/my-second-post/</guid>
       <description>Introduction This is bold text, and this is emphasized text.
 Visit the Hugo website!</description>
     </item>
     
     <item>
       <title>My First Post</title>
-      <link>https://example.org/news/my-first-post/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/news/my-first-post/</link>
       <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate>
       
-      <guid>https://example.org/news/my-first-post/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/news/my-first-post/</guid>
       <description>Introduction This is bold text, and this is emphasized text.
 Visit the Hugo website!</description>
     </item>
     
     <item>
       <title>My First Post</title>
-      <link>https://example.org/press_releases/my-third-post/</link>
+      <link>https://national-political-prisoner-coalition.pages.dev/press_releases/my-third-post/</link>
       <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate>
       
-      <guid>https://example.org/press_releases/my-third-post/</guid>
+      <guid>https://national-political-prisoner-coalition.pages.dev/press_releases/my-third-post/</guid>
       <description>Introduction This is bold text, and this is emphasized text.
 Visit the Hugo website!</description>
     </item>
