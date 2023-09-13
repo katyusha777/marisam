@@ -60,8 +60,6 @@
   </url><url>
     <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/contact-us/</loc>
   </url><url>
-    <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/donate/</loc>
-  </url><url>
     <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/events/</loc>
   </url><url>
     <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/volunteer/</loc>
@@ -89,5 +87,7 @@
     <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/</loc>
   </url><url>
     <loc>https://national-political-prisoner-coalition.pages.dev/learn-more/</loc>
+  </url><url>
+    <loc>https://national-political-prisoner-coalition.pages.dev/get-involved/prisoners/</loc>
   </url>
 </urlset>

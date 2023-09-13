@@ -17,15 +17,6 @@
     
     <item>
       <title></title>
-      <link>https://national-political-prisoner-coalition.pages.dev/get-involved/donate/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://national-political-prisoner-coalition.pages.dev/get-involved/donate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://national-political-prisoner-coalition.pages.dev/get-involved/events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -58,6 +49,15 @@
       
       <guid>https://national-political-prisoner-coalition.pages.dev/get-involved/birthdates/</guid>
       <description> </description>
+    </item>
+    
+    <item>
+      <title>Prisoners</title>
+      <link>https://national-political-prisoner-coalition.pages.dev/get-involved/prisoners/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://national-political-prisoner-coalition.pages.dev/get-involved/prisoners/</guid>
+      <description></description>
     </item>
     
   </channel>

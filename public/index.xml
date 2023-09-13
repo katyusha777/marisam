@@ -140,15 +140,6 @@ Visit the Hugo website!</description>
     
     <item>
       <title></title>
-      <link>https://national-political-prisoner-coalition.pages.dev/get-involved/donate/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://national-political-prisoner-coalition.pages.dev/get-involved/donate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://national-political-prisoner-coalition.pages.dev/get-involved/events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -226,6 +217,15 @@ Visit the Hugo website!</description>
       
       <guid>https://national-political-prisoner-coalition.pages.dev/about/board-of-directors/</guid>
       <description>Lorem ipsum Lorem ipsum dolor sit amet</description>
+    </item>
+    
+    <item>
+      <title>Prisoners</title>
+      <link>https://national-political-prisoner-coalition.pages.dev/get-involved/prisoners/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://national-political-prisoner-coalition.pages.dev/get-involved/prisoners/</guid>
+      <description></description>
     </item>
     
   </channel>

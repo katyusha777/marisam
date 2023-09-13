@@ -12,6 +12,7 @@
                 </li>
                 <!-- Primary Nav -->
                 <li class="navSection primary">
+                    <a class="rootLink colorize" href="/get-involved/prisoners">Prisoners</a>
                     <a class="rootLink colorize" href="/news">News</a>
                     <a class="rootLink colorize" href="/press-releases">Press Releases</a>
                     {{ range .Site.Menus.main }}
@@ -30,18 +31,55 @@
                     <div class="popup">
                         <div class="popupContainer">
                             <a class="popupCloseButton">Close</a>
-                            {{ range .Site.Menus.main }}
-                            <div class="mobile{{ .Identifier }}">
-                                <h4>{{ .Name }}</h4>
+
+                            <div>
+                                <a class="rootLink" href="/get-involved/prisoners">Prisoners</a>
+                                <a class="rootLink" href="/news">News</a>
+                                <a class="rootLink" href="/press-releases">Press Releases</a>
+
+
+                                <h4>About</h4>
                                 <div class="mobileSecondaryNav">
                                     <ul>
-                                        {{ range .Children }}
-                                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                                        {{ end }}
+                                        <li><a href="/about/about-us">About Us</a></li>
+                                        <li><a href="/about/board-of-directors">Board of Directors</a></li>
+                                        <li><a href="/about/staff">Staff</a></li>
+                                        <li><a href="/about/partners">Partners</a></li>
+                                        <li><a href="/about/careers-internships">Careers & Internships</a></li>
+                                        <li><a href="/about/frequently-asked-questions">Frequently Asked Questions</a>
+                                        </li>
+                                        <li><a href="/about/contact-us">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            {{ end }}
+
+                            <div>
+                                <h4>Learn More</h4>
+                                <div class="mobileSecondaryNav">
+                                    <ul>
+                                        <li><a href="/learn-more/annual-report">Annual Report</a></li>
+                                        <li><a href="/learn-more/events">Events</a></li>
+                                        <li><a href="/learn-more/history">History</a></li>
+                                        <li><a href="/learn-more/contact-us">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4>Get Involved</h4>
+                                <div class="mobileSecondaryNav">
+                                    <ul>
+                                        <li><a href="/get-involved/donate">Donate</a></li>
+                                        <li><a href="/get-involved/events">Events</a></li>
+                                        <li><a href="/get-involved/volunteer">Volunteer</a></li>
+                                        <li><a href="/get-involved/write-a-political-prisoner">Write a Political
+                                                Prisoner</a></li>
+                                        <li><a href="/get-involved/contact-us">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
                             <a class="mobileSignIn" data-adroll-segment="submit_two" href="/donate">Donate</a>
                         </div>
                     </div>
