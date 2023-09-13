@@ -3,41 +3,170 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/root.css">
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/naacp/naacp1.css">
     <link rel="stylesheet" href="/naacp/naacp2.css">
     <link rel="stylesheet" href="/naacp/naacp3.css">
-    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
         National Political Prisoner Coalition
         </title>
 </head>
 
 <body>
-    <header class="site-header">
-
-    <div class="site-header-inner">
-        
-        <a href="/" class="site-header-logo">
-            <img src="/logo.png" alt="National Political Prisoner Coalition">
-        </a>
-        
-        <nav class="site-header-nav" aria-label="Main Site Navigation">
-            <ul>
+    <div id="navcnt">
+    <header class="globalNav noDropdownTransition">
+        <div class="container-lg">
+            <ul class="navRoot">
                 
-                <li class="site-header-nav-main-item">
-                    <a href="/press_releases/" title="Press Releases">Press Releases</a>
+                <li class="navSection logo">
+                    <a class="rootLink item-home colorize" href="/">
+                        <h1>
+                            <img id="headLogo" src="/logo.png" />
+                        </h1>
+                    </a>
                 </li>
                 
-                <li class="site-header-nav-main-item">
-                    <a href="/news/" title="News">News</a>
+                <li class="navSection primary">
+                    <a class="rootLink colorize" href="/news">News</a>
+                    <a class="rootLink colorize" href="/press-releases">Press Releases</a>
+                    
+                    <a class="rootLink hasDropdown colorize" data-dropdown="about">About</a>
+                    
+                    <a class="rootLink hasDropdown colorize" data-dropdown="get-involved">Get Involved</a>
+                    
+                    <a class="rootLink hasDropdown colorize" data-dropdown="learn-more">Learn More</a>
+                    
                 </li>
                 
+                <li class="navSection secondary">
+                    <a class="rootLink item-support colorize" id="donateBtn" href="/donate">Donate</a>
+                </li>
+                
+                <li class="navSection mobile">
+                    <a class="rootLink item-mobileMenu colorize">
+                        <h2>Menu</h2>
+                    </a>
+                    <div class="popup">
+                        <div class="popupContainer">
+                            <a class="popupCloseButton">Close</a>
+                            
+                            <div class="mobileabout">
+                                <h4>About</h4>
+                                <div class="mobileSecondaryNav">
+                                    <ul>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mobileget-involved">
+                                <h4>Get Involved</h4>
+                                <div class="mobileSecondaryNav">
+                                    <ul>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mobilelearn-more">
+                                <h4>Learn More</h4>
+                                <div class="mobileSecondaryNav">
+                                    <ul>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <a class="mobileSignIn" data-adroll-segment="submit_two" href="/donate">Donate</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
-        </nav>
-        <a href="/donate" class="site-header-donate btn -plain">Donate</a>
-    </div>
-</header>
+        </div>
+        
+        <div class="dropdownRoot">
+            <div class="dropdownBackground" style="transform: translateX(452px) scaleX(0.707692) scaleY(1.1075);">
+                <div class="alternateBackground" style="transform: translateY(255.53px);"></div>
+            </div>
+            <div class="dropdownArrow" style="transform: translateX(636px) rotate(45deg);"></div>
+            <div class="dropdownContainer" style="transform: translateX(452px); width: 368px; height: 443px;">
+
+                <div class="dropdownSection right" data-dropdown="about">
+                    <div class="dropdownContent">
+                        <ul class="linkGroup linkList aboutGroup">
+                            <li><a class="linkContainer" href="/about/about-us">
+                                    <h3 class="linkTitle">About Us</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/board-of-directors">
+                                    <h3 class="linkTitle">Board of Directors</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/staff">
+                                    <h3 class="linkTitle">Staff</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/partners">
+                                    <h3 class="linkTitle">Partners</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/careers-internships">
+                                    <h3 class="linkTitle">Careers & Internships</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/frequently-asked-questions">
+                                    <h3 class="linkTitle">FAQ</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/about/contact-us">
+                                    <h3 class="linkTitle">Contact Us</h3>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdownSection right" data-dropdown="learn-more">
+                    <div class="dropdownContent">
+                        <ul class="linkGroup linkList learn-moreGroup">
+                            <li><a class="linkContainer" href="/learn-more/annual-report">
+                                    <h3 class="linkTitle">Annual Report</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/learn-more/events">
+                                    <h3 class="linkTitle">Events</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/learn-more/history">
+                                    <h3 class="linkTitle">History</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/learn-more/contact-us">
+                                    <h3 class="linkTitle">Contact Us</h3>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdownSection right" data-dropdown="get-involved">
+                    <div class="dropdownContent">
+                        <ul class="linkGroup linkList get-involvedGroup">
+                            <li><a class="linkContainer" href="/get-involved/birthdates">
+                                    <h3 class="linkTitle">Birthdates</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/get-involved/events">
+                                    <h3 class="linkTitle">Events</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/get-involved/volunteer">
+                                    <h3 class="linkTitle">Volunteer</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/get-involved/write-a-political-prisoner">
+                                    <h3 class="linkTitle">Prisoner Outreach</h3>
+                                </a></li>
+                            <li><a class="linkContainer" href="/get-involved/contact-us">
+                                    <h3 class="linkTitle">Contact Us</h3>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>
     
 <main id="maincontent">
     <article class="grid-container">
@@ -58,7 +187,6 @@
                     <div class="hero-inset">
                         <picture>
                             
-
                         </picture>
                     </div>
                 </div>
@@ -112,6 +240,7 @@
         </svg>
     </div>
 </footer>
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>

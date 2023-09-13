@@ -20,7 +20,7 @@
                     <div class="hero-inset">
                         <picture>
                             {{ with .Params.header_image }}
-                            <img src="{{ . }}" alt="{{ $.Title }}" width="1680" height="978">
+                            <div class="bgImage" style="background-image: url('{{ . }}');"></div>
                             {{ end }}
                         </picture>
                     </div>
@@ -28,11 +28,9 @@
             </div>
         </header>
 
-
-        {{ partial "donate.html" . }}
-
-
-
     </article>
+
+    {{ partial "donate.html" . }}
+
 </main>
 {{ end }}

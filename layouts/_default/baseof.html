@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/root.css">
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/naacp/naacp1.css">
     <link rel="stylesheet" href="/naacp/naacp2.css">
     <link rel="stylesheet" href="/naacp/naacp3.css">
-    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ block "title" . }}
         {{ .Site.Title }}
         {{ end }}</title>
@@ -19,6 +21,7 @@
     <!-- The part of the page that begins to differ between templates -->
     {{ end }}
     {{ partial "footer.html" . }}
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>

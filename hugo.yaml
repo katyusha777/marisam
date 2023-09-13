@@ -3,6 +3,11 @@ languageCode: en-us
 title: National Political Prisoner Coalition
 theme: marisam
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 Params:
   copyright: "2023 National Political Prisoner Coalition"
   footerLinks:
