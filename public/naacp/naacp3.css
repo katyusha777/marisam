@@ -18906,39 +18906,6 @@ not all and (min-resolution:0.001dpcm) {
     transition: .1s ease-in-out
 }
 
-.take-action-listing .feature.-focused,
-.take-action-listing .feature:focus,
-.take-action-listing .feature:hover {
-    background-color: #fff;
-    box-shadow: 0 0 0 3px #6b8ce9, 10px 12px 14px 0 rgba(0, 0, 0, .2)
-}
-
-.take-action-listing .feature.-focused .item,
-.take-action-listing .feature:focus .item,
-.take-action-listing .feature:hover .item {
-    background-color: #fff;
-    color: #000
-}
-
-.take-action-listing .feature.-focused a,
-.take-action-listing .feature:focus a,
-.take-action-listing .feature:hover a {
-    color: #000
-}
-
-.take-action-listing .feature.-focused .timer:before,
-.take-action-listing .feature:focus .timer:before,
-.take-action-listing .feature:hover .timer:before {
-    color: #6b8ce9
-}
-
-.take-action-listing .feature.-focused .-go,
-.take-action-listing .feature:focus .-go,
-.take-action-listing .feature:hover .-go {
-    left: 3px;
-    background-color: #6b8ce9;
-    color: #fff
-}
 
 .take-action-listing .feature.-focused .bg-scribble,
 .take-action-listing .feature:focus .bg-scribble,
