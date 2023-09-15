@@ -115,6 +115,7 @@ article.item:hover h3 {
 #airtable-data .feature-photo {
     width: 250px;
     min-height: unset;
+    padding: 0;
     height: 310px;
     overflow: hidden;
     border-radius: 5px;
@@ -353,4 +354,44 @@ article.item:hover h3 {
 
 #prisoners-header body {
     padding: 50px 0;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #prisoners-header h1 {
+        font-size: 75px;
+        padding-left: 20px;
+    }
+
+    #prisoners-header .flush-right,
+    #prisoners-header .bg-nudge,
+    #prisoners-header .sm-nudge {
+        margin-right: 0;
+        text-align: left;
+    }
+
+    #prisoners-header {
+        position: relative;
+        height: 500px;
+        padding-top: 150px;
+    }
+
+    #airtable-data .item {
+        width: 100%;
+    }
+
+    #airtable-data .feature-photo {
+        display: none;
+    }
+
+    .testimonial .text cite {
+        font-size: 15px;
+    }
+
+    .testimonial .text p {
+        font-size: 25px;
+        font-size: 18px;
+        text-align: left;
+        font-weight: normal;
+    }
 }
