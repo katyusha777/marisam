@@ -1,0 +1,253 @@
+#filters {
+    width: 800px;
+    margin: 1rem auto 3rem;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        background-color: #fff;
+        padding: 0.7rem 1rem;
+        flex-grow: 1;
+        margin: 0 0.2rem;
+
+        &.active {
+            background-color: var(--secondary-color);
+            color: #FFF;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 767px) {
+
+    .prisoner main .charges .charges-cnt .charge {
+        font-size: 13px;
+    }
+
+    #filters {
+        flex-wrap: wrap;
+        width: 100%;
+
+        button {
+            margin: 0.2rem 1rem;
+            flex-basis: 100%;
+        }
+    }
+}
+
+
+.prisoner {
+    border: 1px solid #fff;
+    color: #FFF;
+    width: 800px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+
+
+    .isOpen {
+        display: none;
+    }
+
+    &.open {
+        .isOpen {
+            display: block;
+        }
+
+        .isClosed {
+            display: none;
+        }
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #fff;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        font-size: 24px;
+
+        h2,
+        h3 {
+            color: #FFF;
+            font-size: 30px;
+        }
+
+        h2 {}
+
+        .meta {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .showMore {
+            font-size: 14px;
+            line-height: 35px;
+            margin-left: 2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 90px;
+            text-align: right;
+        }
+    }
+
+    .charged {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            font-weight: bold;
+        }
+
+        .image {
+            width: 210px;
+
+            img {}
+        }
+
+        .info {
+            flex-grow: 1;
+            margin-left: 2rem;
+
+            #info-container {
+                display: flex;
+                justify-content: space-between;
+
+                .info-group {
+
+                    .label {}
+
+                    .value {}
+                }
+            }
+        }
+
+
+        .charges {
+            margin-top: 1rem;
+
+            .charges-cnt {
+                display: flex;
+                justify-content: flex-start;
+
+                .charge {
+                    background-color: #a5b0b0;
+                    margin-right: 8px;
+                    border-radius: 4px;
+                    color: #FFF;
+                    text-transform: uppercase;
+                    padding: 0.1rem 0.4rem;
+                }
+            }
+        }
+
+        .foundGuilty {
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            margin: 1rem 0;
+            padding: 1rem 0;
+
+        }
+
+        .sentenced {
+            margin-bottom: 1rem;
+
+        }
+
+        .conviction {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+
+    .currentImprisonment {
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #FFF;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 23px;
+    }
+
+    &.open {
+        .moreInfo {
+            display: block;
+        }
+    }
+
+    .moreInfo {
+        display: none;
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #FFF;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+    }
+
+
+    @media only screen and (max-width: 767px) {
+        width: 93vw;
+
+        .image {
+            max-width: 100%;
+            display: block;
+            margin: auto;
+        }
+
+        header h2,
+        header h3 {
+            font-size: 16px;
+            line-height: 35px;
+
+        }
+
+        .moreInfo .header {
+            flex-wrap: wrap;
+
+            >div {
+                margin-top: 1.7rem;
+                flex-basis: 50%;
+            }
+        }
+
+        .currentImprisonment {
+            font-size: 14px;
+        }
+
+        main {
+            display: block;
+
+            .image {
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .info {
+                margin: 0;
+            }
+
+            #info-container {
+                flex-wrap: wrap;
+
+                .info-group {
+                    flex-basis: 50%;
+                    margin-top: 1.7rem;
+                }
+            }
+        }
+    }
+}

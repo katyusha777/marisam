@@ -112,35 +112,6 @@ article.item:hover h3 {
     background-color: unset;
 }
 
-#airtable-data .feature-photo {
-    width: 250px;
-    min-height: unset;
-    padding: 0;
-    height: 310px;
-    overflow: hidden;
-    border-radius: 5px;
-    background-size: cover;
-    background-position: center;
-}
-
-
-#airtable-data .item {
-    background-color: #000000;
-    padding-top: 0;
-    width: calc(100% - 250px);
-}
-
-#airtable-data p {
-    font-size: 14px;
-    font-weight: normal;
-}
-
-#airtable-data .info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
 
 .take-action-listing .feature:last-child {
     margin-bottom: 0;

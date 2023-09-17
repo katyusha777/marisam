@@ -1,0 +1,186 @@
+#filters {
+  width: 800px;
+  margin: 1rem auto 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+#filters button {
+  background-color: #fff;
+  padding: 0.7rem 1rem;
+  flex-grow: 1;
+  margin: 0 0.2rem;
+}
+#filters button.active {
+  background-color: var(--secondary-color);
+  color: #FFF;
+}
+
+@media only screen and (max-width: 767px) {
+  .prisoner main .charges .charges-cnt .charge {
+    font-size: 13px;
+  }
+  #filters {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  #filters button {
+    margin: 0.2rem 1rem;
+    flex-basis: 100%;
+  }
+}
+.prisoner {
+  border: 1px solid #fff;
+  color: #FFF;
+  width: 800px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+}
+.prisoner .isOpen {
+  display: none;
+}
+.prisoner.open .isOpen {
+  display: block;
+}
+.prisoner.open .isClosed {
+  display: none;
+}
+.prisoner header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  font-size: 24px;
+}
+.prisoner header h2,
+.prisoner header h3 {
+  color: #FFF;
+  font-size: 30px;
+}
+.prisoner header .meta {
+  display: flex;
+  justify-content: flex-end;
+}
+.prisoner header .showMore {
+  font-size: 14px;
+  line-height: 35px;
+  margin-left: 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 90px;
+  text-align: right;
+}
+.prisoner .charged {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.prisoner main {
+  display: flex;
+  justify-content: space-between;
+}
+.prisoner main .title {
+  font-weight: bold;
+}
+.prisoner main .image {
+  width: 210px;
+}
+.prisoner main .info {
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+.prisoner main .info #info-container {
+  display: flex;
+  justify-content: space-between;
+}
+.prisoner main .charges {
+  margin-top: 1rem;
+}
+.prisoner main .charges .charges-cnt {
+  display: flex;
+  justify-content: flex-start;
+}
+.prisoner main .charges .charges-cnt .charge {
+  background-color: #a5b0b0;
+  margin-right: 8px;
+  border-radius: 4px;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+}
+.prisoner main .foundGuilty {
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+.prisoner main .sentenced {
+  margin-bottom: 1rem;
+}
+.prisoner main .conviction {
+  display: flex;
+  justify-content: space-between;
+}
+.prisoner .currentImprisonment {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #FFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+}
+.prisoner.open .moreInfo {
+  display: block;
+}
+.prisoner .moreInfo {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #FFF;
+}
+.prisoner .moreInfo .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+@media only screen and (max-width: 767px) {
+  .prisoner {
+    width: 93vw;
+  }
+  .prisoner .image {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+  }
+  .prisoner header h2,
+  .prisoner header h3 {
+    font-size: 16px;
+    line-height: 35px;
+  }
+  .prisoner .moreInfo .header {
+    flex-wrap: wrap;
+  }
+  .prisoner .moreInfo .header > div {
+    margin-top: 1.7rem;
+    flex-basis: 50%;
+  }
+  .prisoner .currentImprisonment {
+    font-size: 14px;
+  }
+  .prisoner main {
+    display: block;
+  }
+  .prisoner main .image img {
+    display: block;
+    margin: 0 auto;
+  }
+  .prisoner main .info {
+    margin: 0;
+  }
+  .prisoner main #info-container {
+    flex-wrap: wrap;
+  }
+  .prisoner main #info-container .info-group {
+    flex-basis: 50%;
+    margin-top: 1.7rem;
+  }
+}/*# sourceMappingURL=prisoner.css.map */
