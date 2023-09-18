@@ -4,6 +4,7 @@ const API_KEY = "patkqatIXPtJNRcAo.9e4b54184c0791561b7ef52065beb0e529573807c7dba
 
 window.filters = {}
 window.filters["affiliations"] = []
+window.filters["ideologies"] = []
 window.filters["states"] = []
 
 function createFilterButtons() {
@@ -161,6 +162,13 @@ function renderData(records) {
 
         if (fields["Institution State"]) window.filters["states"].push(fields["Institution State"])
         if (fields["Affiliation"]) window.filters["affiliations"].push(fields["Affiliation"])
+        if (fields["Ideologies"] && fields["Ideologies"].length) {
+            fields["Ideologies"].forEach((ideology) => {
+                classNames.push(ideology.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase());
+                window.filters["ideologies"].push(ideology)
+            }
+            )
+        }
 
         const articleCard = document.createElement('article');
         articleCard.className = `prisoner ${classNames.join(' ')}`;
@@ -274,13 +282,14 @@ function renderData(records) {
 
     window.filters["states"] = removeDuplicates(window.filters["states"])
     window.filters["affiliations"] = removeDuplicates(window.filters["affiliations"])
+    window.filters["ideologies"] = removeDuplicates(window.filters["ideologies"])
     populateFiltersFromWindowObject();
 
 }
 
 
 function initializeFilterListeners() {
-    const affiliationSelect = document.querySelector("#affiliation-filter");
+    const affiliationSelect = document.querySelector("#ideologies-filter");
     const stateSelect = document.querySelector("#state-filter");
 
     affiliationSelect.addEventListener("change", filterArticles);
@@ -289,8 +298,9 @@ function initializeFilterListeners() {
 
 function filterArticles() {
     // Get selected options
-    const selectedAffiliation = document.querySelector("#affiliation-filter").value;
+    const selectedIdeologies = document.querySelector("#ideologies-filter").value.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
     const selectedState = document.querySelector("#state-filter").value;
+    console.log(selectedIdeologies)
 
     // Get all articles with the 'prisoner' class
     const articles = document.querySelectorAll("article.prisoner");
@@ -299,8 +309,8 @@ function filterArticles() {
         let shouldShow = true;
 
         // Check if article should be shown based on affiliation
-        if (selectedAffiliation) {
-            shouldShow = article.classList.contains(selectedAffiliation);
+        if (selectedIdeologies) {
+            shouldShow = article.classList.contains(selectedIdeologies);
         }
 
         // Check if article should be shown based on state
@@ -336,7 +346,7 @@ function populateFiltersFromWindowObject() {
     }
 
     // Extract data from window.filters
-    const { affiliations, states } = window.filters;
+    const { affiliations, states, ideologies } = window.filters;
 
     // Validate that the necessary fields exist
     if (!Array.isArray(affiliations) || !Array.isArray(states)) {
@@ -356,8 +366,9 @@ function populateFiltersFromWindowObject() {
     };
 
     // Populate the select elements
-    populateSingleSelect("#affiliation-filter", affiliations);
+    // populateSingleSelect("#affiliation-filter", affiliations);
     populateSingleSelect("#state-filter", states);
+    populateSingleSelect("#ideologies-filter", ideologies);
     initializeFilterListeners();
 
 }
