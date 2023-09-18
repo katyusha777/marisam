@@ -257,7 +257,7 @@ function renderData(records) {
             </section>
         </main>
         <div class="currentImprisonment">
-        ${timeSpentInPrison ?? ''}
+        ${fields["In Exile"] ? 'In Exile' : (timeSpentInPrison ?? '')}
         </div>
         <section class="moreInfo">
         <section class="header">
