@@ -2,6 +2,10 @@ const API_URL = `https://api.airtable.com/v0/appxFZ2jp2w9l3xCe/tblBWHq2Xe2pIY3OA
 const API_KEY = "patkqatIXPtJNRcAo.9e4b54184c0791561b7ef52065beb0e529573807c7dba49623b0151ebb3f5081"; // Replace with your API key
 
 
+window.filters = {}
+window.filters["affiliations"] = []
+window.filters["states"] = []
+
 function createFilterButtons() {
     const filters = ["All cases", "Stings", "Cooperators", "In Custody", "Released", "Awaiting Trial"];
     const filterContainer = document.getElementById("filters");
@@ -108,6 +112,11 @@ function fetchData() {
         .catch(error => console.log('Error:', error));
 }
 
+function removeDuplicates(arr) {
+    return arr.filter((item,
+        index) => arr.indexOf(item) === index);
+}
+
 function renderData(records) {
     const container = document.getElementById("airtable-data");
 
@@ -145,10 +154,15 @@ function renderData(records) {
             "Awaiting Trial": 'awaitingTrial'
         };
 
-        const classNames = Object.keys(fieldToClassMap).filter(f => fields[f]).map(f => fieldToClassMap[f]).join(' ');
+        const classNames = Object.keys(fieldToClassMap).filter(f => fields[f]).map(f => fieldToClassMap[f]);
+        classNames.push(fields["Affiliation"])
+        classNames.push(fields["Institution State"])
+
+        if (fields["Institution State"]) window.filters["states"].push(fields["Institution State"])
+        if (fields["Affiliation"]) window.filters["affiliations"].push(fields["Affiliation"])
 
         const articleCard = document.createElement('article');
-        articleCard.className = `prisoner ${classNames}`;
+        articleCard.className = `prisoner ${classNames.join(' ')}`;
 
         let chargesHTML = "";
         if (fields.Charges) {
@@ -242,26 +256,7 @@ function renderData(records) {
                           <div class="title">${district}</div>
                       </div>` : ''
             }
-        ${sting ? `<div>
-                       <div class="label">STING</div>
-                       <div class="title">${sting}</div>
-                   </div>` : ''
-            }
-        ${fisaNotification ? `<div>
-                                  <div class="label">FISA NOTIFICATION</div>
-                                  <div class="title">${fisaNotification}</div>
-                              </div>` : ''
-            }
-        ${state ? `<div>
-                       <div class="label">STATE</div>
-                       <div class="title">${state}</div>
-                   </div>` : ''
-            }
-        ${involvesInformant ? `<div>
-                                   <div class="label">INVOLVES INFORMANT</div>
-                                   <div class="title">${involvesInformant}</div>
-                               </div>` : ''
-            }
+       
     </section>
 
         <section class="description">
@@ -273,7 +268,52 @@ function renderData(records) {
         articleCard.innerHTML = articleHtml;
         container.appendChild(articleCard);
     });
+
+    window.filters["states"] = removeDuplicates(window.filters["states"])
+    window.filters["affiliations"] = removeDuplicates(window.filters["affiliations"])
+    populateFiltersFromWindowObject();
+
 }
+
+
+function initializeFilterListeners() {
+    const affiliationSelect = document.querySelector("#affiliation-filter");
+    const stateSelect = document.querySelector("#state-filter");
+
+    affiliationSelect.addEventListener("change", filterArticles);
+    stateSelect.addEventListener("change", filterArticles);
+}
+
+function filterArticles() {
+    // Get selected options
+    const selectedAffiliation = document.querySelector("#affiliation-filter").value;
+    const selectedState = document.querySelector("#state-filter").value;
+
+    // Get all articles with the 'prisoner' class
+    const articles = document.querySelectorAll("article.prisoner");
+
+    articles.forEach((article) => {
+        let shouldShow = true;
+
+        // Check if article should be shown based on affiliation
+        if (selectedAffiliation) {
+            shouldShow = article.classList.contains(selectedAffiliation);
+        }
+
+        // Check if article should be shown based on state
+        if (shouldShow && selectedState) {
+            shouldShow = article.classList.contains(selectedState);
+        }
+
+        // Show or hide the article based on the above checks
+        if (shouldShow) {
+            article.style.display = "block";
+        } else {
+            article.style.display = "none";
+        }
+    });
+}
+
 
 
 // Generate additional information for each card based on field mappings
@@ -283,6 +323,44 @@ function generateAdditionalInfoHtml(fields) {
         return `<div><strong>${fieldMappings[key]}:</strong> ${value}</div>`;
     }).join('');
 }
+
+
+function populateFiltersFromWindowObject() {
+    // Validate if window.filters is present and is an object
+    if (typeof window.filters !== 'object') {
+        console.error('window.filters is not defined or not an object.');
+        return;
+    }
+
+    // Extract data from window.filters
+    const { affiliations, states } = window.filters;
+
+    // Validate that the necessary fields exist
+    if (!Array.isArray(affiliations) || !Array.isArray(states)) {
+        console.error('affiliations or states is not defined or not an array in window.filters.');
+        return;
+    }
+
+    // Function to populate a single select
+    const populateSingleSelect = (selectId, optionsArray) => {
+        const selectElement = document.querySelector(selectId);
+        optionsArray.forEach((optionValue) => {
+            const optionElement = document.createElement('option');
+            optionElement.value = optionValue;
+            optionElement.text = optionValue;
+            selectElement.appendChild(optionElement);
+        });
+    };
+
+    // Populate the select elements
+    populateSingleSelect("#affiliation-filter", affiliations);
+    populateSingleSelect("#state-filter", states);
+    initializeFilterListeners();
+
+}
+
+
+
 
 // Calculate Age from Date of Birth
 function calculateAge(dob) {
