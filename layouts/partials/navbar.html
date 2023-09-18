@@ -14,14 +14,13 @@
                 <li class="navSection primary">
                     <a class="rootLink colorize" href="/get-involved/prisoners">Prisoners</a>
                     <a class="rootLink colorize" href="/news">News</a>
-                    <a class="rootLink colorize" href="/press-releases">Press Releases</a>
                     {{ range .Site.Menus.main }}
                     <a class="rootLink hasDropdown colorize" data-dropdown="{{ .Identifier }}">{{ .Name }}</a>
                     {{ end }}
                 </li>
                 <!-- Secondary Nav -->
                 <li class="navSection secondary">
-                    <a class="rootLink item-support colorize" id="donateBtn" href="/donate">Donate</a>
+                    <a class="rootLink item-support colorize btn" id="donateBtn" href="/donate">Donate</a>
                 </li>
                 <!-- Mobile Nav -->
                 <li class="navSection mobile">
