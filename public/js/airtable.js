@@ -61,7 +61,7 @@ function calculateImprisonment(incarcerationDate) {
 
     if (!years || isNaN(years)) return null
 
-    return `CURRENT IMPRISONMENT ${years} YEARS, ${months} MONTHS, ${days} DAYS`;
+    return `IMPRISONED FOR ${years} YEARS, ${months} MONTHS, ${days} DAYS`;
 }
 
 
