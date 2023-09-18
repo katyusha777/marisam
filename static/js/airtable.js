@@ -54,6 +54,8 @@ function calculateImprisonment(incarcerationDate) {
         years--;
     }
 
+    if (!years || isNaN(years)) return null
+
     return `CURRENT IMPRISONMENT ${years} YEARS, ${months} MONTHS, ${days} DAYS`;
 }
 
@@ -113,24 +115,24 @@ function renderData(records) {
         const fields = record.fields;
         fields.Age = fields.Age;  // Already present in the dataset
         const prisonerName = fields.name; // Changed variable name to match the dataset
-        const inmateNumber = fields["Prisoner ID"] ?? 'Unknown'; // Unchanged
-        const district = fields["Institution State"] ?? 'Unknown'; // Replaced with Institution State
+        const inmateNumber = fields["Prisoner ID"] ?? null; // Unchanged
+        const district = fields["Institution State"] ?? null; // Replaced with Institution State
         const sting = fields.Sting ? "Yes" : "No"; // Changed to boolean check
         const fisaNotification = fields["Fisa Notification"] ? "Yes" : "No"; // Field not found in dataset
         const involvesInformant = fields["Involves Informant"] ? "Yes" : "No"; // Field not found in dataset
-        const state = fields["Institution State"] ?? 'Unknown'; // Replaced with Institution State
-        const chargedDate = fields["Incarceration Date"] ?? 'Unknown'; // Replaced with Incarceration Date
-        const age = fields.Age ?? 'Unknown'; // Unchanged
-        const gender = fields.Gender ?? 'Unknown'; // Unchanged
-        const race = fields.Race ?? 'Unknown'; // Unchanged
-        const birthday = fields.Birthdate ?? 'Unknown'; // Changed field name to match dataset
-        const affiliation = fields.Affiliation ?? 'Unknown'; // Unchanged
+        const state = fields["Institution State"] ?? null; // Replaced with Institution State
+        const chargedDate = fields["Incarceration Date"] ?? null; // Replaced with Incarceration Date
+        const age = fields.Age ?? null; // Unchanged
+        const gender = fields.Gender ?? null; // Unchanged
+        const race = fields.Race ?? null; // Unchanged
+        const birthday = fields.Birthdate ?? null; // Changed field name to match dataset
+        const affiliation = fields.Affiliation ?? null; // Unchanged
         const description = fields.Description; // Unchanged
         const charges = fields.Charges ?? []; // Unchanged
-        const foundGuilty = fields["Found Guilty"] ?? 'Unknown'; // Replaced with Found Guilty
-        const sentenced = fields["Sentenced Date"] ?? 'Unknown'; // Replaced with Sentenced Date
-        const imprisonment = fields.Inprisonment ?? 'Unknown'; // Changed spelling to match dataset
-        const releaseDate = fields["Release Date"] ?? 'Unknown'; // Replaced with Release Date
+        const foundGuilty = fields["Found Guilty"] ?? null; // Replaced with Found Guilty
+        const sentenced = fields["Sentenced Date"] ?? null; // Replaced with Sentenced Date
+        const imprisonment = fields.Inprisonment ?? null; // Changed spelling to match dataset
+        const releaseDate = fields["Release Date"] ?? null; // Replaced with Release Date
         const currentImprisonment = "Unknown"; // Field not found in dataset
 
         const timeSpentInPrison = calculateImprisonment(fields["Incarceration Date"])
@@ -160,90 +162,110 @@ function renderData(records) {
         <header class="flex">
             <h2>${prisonerName}</h2>
             <div class="meta">
-                <h3>#${inmateNumber}</h3>
+                ${inmateNumber ? `<h3>#${inmateNumber}</h3>` : ''}
                     <div class="showMore"><div class="isClosed">Show more</div><div class="isOpen">Hide</div></div>
             </div>
         </header>
-        <section class="charged">CHARGED: ${chargedDate}</section>
+        ${chargedDate ? `<section class="charged">CHARGED: ${chargedDate}</section>` : ''}
         <main>
             <section class="image">
                 <img src="${fields.Photo ? fields.Photo[0].thumbnails.large.url : ''}" />
             </section>
             <section class="info">
-                <div id="info-container">
-                    <div class="info-group">
-                        <div class="label">AGE</div>
-                        <div class="value">${age}</div>
-                    </div>
-                    <div class="info-group">
-                        <div class="label">GENDER</div>
-                        <div class="value">${gender}</div>
-                    </div>
-                    <div class="info-group">
-                        <div class="label">RACE</div>
-                        <div class="value">${race}</div>
-                    </div>
-                    <div class="info-group">
-                        <div class="label">BIRTHDAY</div>
-                        <div class="value">${birthday}</div>
-                    </div>
-                    <div class="info-group">
-                        <div class="label">AFFILIATION</div>
-                        <div class="value">${affiliation}</div>
-                    </div>
-                </div>
-                <div class="charges">
-                    <div class="title">CHARGES</div>
-                    <div class="charges-cnt">
-                    ${chargesHTML}
-                    </div>
-                </div>
-                <div class="foundGuilty">
-                    FOUND GUILTY: ${foundGuilty}
-                </div>
-                <div class="sentenced">
-                    SENTENCED: ${sentenced}
-                </div>
-                <div class="conviction">
-                    <div>
-                        <div>IMPRISONMENT</div>
-                        <div>${imprisonment}</div>
-                    </div>
-                    <div>
-                        <div>RELEASE DATE:</div>
-                        <div>${releaseDate}</div>
-                    </div>
-                </div>
+            <div id="info-container">
+            ${age ? `<div class="info-group">
+                         <div class="label">AGE</div>
+                         <div class="value">${age}</div>
+                     </div>` : ''
+            }
+            ${gender ? `<div class="info-group">
+                             <div class="label">GENDER</div>
+                             <div class="value">${gender}</div>
+                         </div>` : ''
+            }
+            ${race ? `<div class="info-group">
+                         <div class="label">RACE</div>
+                         <div class="value">${race}</div>
+                     </div>` : ''
+            }
+            ${birthday ? `<div class="info-group">
+                             <div class="label">BIRTHDAY</div>
+                             <div class="value">${birthday}</div>
+                         </div>` : ''
+            }
+            ${affiliation ? `<div class="info-group">
+                                 <div class="label">AFFILIATION</div>
+                                 <div class="value">${affiliation}</div>
+                             </div>` : ''
+            }
+        </div>
+     
+        ${chargesHTML ? `
+        <div class="charges">
+        <div class="title">CHARGES</div>
+        <div class="charges-cnt">
+        ${chargesHTML}
+        </div>
+        ` : ''}
+    </div>
+    ${foundGuilty ? `<div class="foundGuilty">
+                        FOUND GUILTY: ${foundGuilty}
+                    </div>` : ''
+            }
+    ${sentenced ? `<div class="sentenced">
+                        SENTENCED: ${sentenced}
+                   </div>` : ''
+            }
+    ${imprisonment || releaseDate ? `<div class="conviction">
+                                        <div>
+                                            ${imprisonment ? `<div>IMPRISONMENT</div>
+                                                            <div>${imprisonment}</div>` : ''
+                }
+                                        </div>
+                                        <div>
+                                            ${releaseDate ? `<div>RELEASE DATE:</div>
+                                                           <div>${releaseDate}</div>` : ''
+                }
+                                        </div>
+                                    </div>` : ''
+            }
+
             </section>
         </main>
         <div class="currentImprisonment">
-        ${timeSpentInPrison}
+        ${timeSpentInPrison ?? ''}
         </div>
         <section class="moreInfo">
         <section class="header">
-            <div>
-                <div class="label">DISTRICT</div>
-                <div class="title">${district}</div>
-            </div>
-            <div>
-                <div class="label">STING</div>
-                <div class="title">${sting}</div>
-            </div>
-            <div>
-                <div class="label">FISA NOTIFICATION</div>
-                <div class="title">${fisaNotification}</div>
-            </div>
-            <div>
-                <div class="label">STATE</div>
-                <div class="title">${state}</div>
-            </div>
-            <div>
-                <div class="label">INVOLVES INFORMANT</div>
-                <div class="title">${involvesInformant}</div>
-            </div>
-        </section>
+        ${district ? `<div>
+                          <div class="label">DISTRICT</div>
+                          <div class="title">${district}</div>
+                      </div>` : ''
+            }
+        ${sting ? `<div>
+                       <div class="label">STING</div>
+                       <div class="title">${sting}</div>
+                   </div>` : ''
+            }
+        ${fisaNotification ? `<div>
+                                  <div class="label">FISA NOTIFICATION</div>
+                                  <div class="title">${fisaNotification}</div>
+                              </div>` : ''
+            }
+        ${state ? `<div>
+                       <div class="label">STATE</div>
+                       <div class="title">${state}</div>
+                   </div>` : ''
+            }
+        ${involvesInformant ? `<div>
+                                   <div class="label">INVOLVES INFORMANT</div>
+                                   <div class="title">${involvesInformant}</div>
+                               </div>` : ''
+            }
+    </section>
+
         <section class="description">
-            ${description}
+            ${description ?? ''}
         </section>
     </section>
         `;
