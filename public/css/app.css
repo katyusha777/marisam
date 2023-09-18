@@ -26,6 +26,17 @@
     height: 100vh
 }
 
+
+@media screen and (min-width: 1024px) {
+
+    /* You can adjust the min-width as per your requirement */
+    #navcnt .globalNav .navSection.logo .rootLink {
+        position: fixed;
+        left: 0;
+        top: 13px;
+    }
+}
+
 .text-block {
     max-width: 980px;
 }
