@@ -42,7 +42,7 @@ createFilterButtons();
 
 
 function calculateImprisonment(incarcerationDate, releaseDate) {
-    const today = new Date(releaseDate);
+    const today = releaseDate ? new Date(releaseDate) : new Date();
     const startDate = new Date(incarcerationDate);
 
     let years = today.getFullYear() - startDate.getFullYear();
@@ -198,7 +198,7 @@ function renderData(records) {
             </section>
             <section class="info">
             <div id="info-container">
-            ${age ? `<div class="info-group">
+            ${age && !isNaN(age) ? `<div class="info-group">
                          <div class="label">AGE</div>
                          <div class="value">${age}</div>
                      </div>` : ''
