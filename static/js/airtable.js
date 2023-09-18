@@ -142,6 +142,7 @@ function renderData(records) {
         const sentenced = fields["Sentenced Date"] ?? null; // Replaced with Sentenced Date
         const imprisonment = fields.Inprisonment ?? null; // Changed spelling to match dataset
         const releaseDate = fields["Release Date"] ?? null; // Replaced with Release Date
+        const AKA = fields["AKA"] ?? null; // Replaced with Release Date
         const currentImprisonment = "Unknown"; // Field not found in dataset
 
         const timeSpentInPrison = calculateImprisonment(fields["Incarceration Date"])
@@ -174,7 +175,9 @@ function renderData(records) {
 
         const articleHtml = `
         <header class="flex">
-            <h2>${prisonerName}</h2>
+        ${AKA ? `${AKA} (${prisonerName})`
+                : `<h2>${prisonerName}</h2>`}
+            
             <div class="meta">
                 ${inmateNumber ? `<h3>#${inmateNumber}</h3>` : ''}
                     <div class="showMore"><div class="isClosed">Show more</div><div class="isOpen">Hide</div></div>
