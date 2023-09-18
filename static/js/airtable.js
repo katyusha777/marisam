@@ -149,9 +149,11 @@ function renderData(records) {
         articleCard.className = `prisoner ${classNames}`;
 
         let chargesHTML = "";
-        fields.Charges.forEach(charge => {
-            chargesHTML += `<div class="charge">${charge}</div>`;
-        });
+        if (fields.Charges) {
+            fields.Charges.forEach(charge => {
+                chargesHTML += `<div class="charge">${charge}</div>`;
+            });
+        }
 
 
         const articleHtml = `
@@ -165,7 +167,7 @@ function renderData(records) {
         <section class="charged">CHARGED: ${chargedDate}</section>
         <main>
             <section class="image">
-                <img src="${fields.Photo[0].thumbnails.large.url}" />
+                <img src="${fields.Photo ? fields.Photo[0].thumbnails.large.url : ''}" />
             </section>
             <section class="info">
                 <div id="info-container">
