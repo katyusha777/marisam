@@ -41,8 +41,8 @@ function createFilterButtons() {
 createFilterButtons();
 
 
-function calculateImprisonment(incarcerationDate) {
-    const today = new Date();
+function calculateImprisonment(incarcerationDate, releaseDate) {
+    const today = new Date(releaseDate);
     const startDate = new Date(incarcerationDate);
 
     let years = today.getFullYear() - startDate.getFullYear();
@@ -146,7 +146,7 @@ function renderData(records) {
         const AKA = fields["AKA"] ?? null; // Replaced with Release Date
         const currentImprisonment = "Unknown"; // Field not found in dataset
 
-        const timeSpentInPrison = calculateImprisonment(fields["Incarceration Date"])
+        const timeSpentInPrison = calculateImprisonment(fields["Incarceration Date"], fields["Release Date"] ?? null)
 
         const fieldToClassMap = {
             Sting: 'stings',
@@ -241,19 +241,18 @@ function renderData(records) {
                         SENTENCED: ${sentenced}
                    </div>` : ''
             }
-    ${imprisonment || releaseDate ? `<div class="conviction">
-                                        <div>
-                                            ${imprisonment ? `<div>IMPRISONMENT</div>
-                                                            <div>${imprisonment}</div>` : ''
-                }
-                                        </div>
-                                        <div>
-                                            ${releaseDate ? `<div>RELEASE DATE:</div>
-                                                           <div>${releaseDate}</div>` : ''
-                }
-                                        </div>
-                                    </div>` : ''
+            <div class="conviction">
+            
+                ${imprisonment ? `<div><div>IMPRISONMENT</div>
+                                <div>${imprisonment}</div></div>` : ''
             }
+            
+            
+                ${releaseDate ? `<div><div>RELEASE DATE:</div>
+                               <div>${releaseDate}</div></div>` : ''
+            }
+            
+        </div>
 
             </section>
         </main>
