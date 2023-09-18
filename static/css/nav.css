@@ -939,18 +939,36 @@
     background-position: -258px -35px;
 }
 
+
+.site-header-top-bar-button a {
+    color: #FFF !important;
+}
+
+
+.site-header-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+}
+
+.site-header-top-bar {
+    display: flex !important
+}
+
 #navcnt .globalNav {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 45px;
     right: 0;
     z-index: 500;
     height: 50px;
     -webkit-perspective: 2000px;
     perspective: 2000px;
-    background: #000000bd;
+    background: #000000eb;
     padding: 0.9rem 0;
     height: unset;
     backdrop-filter: blur(5px);
