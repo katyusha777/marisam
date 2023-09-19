@@ -41,7 +41,7 @@ function createFilterButtons() {
 createFilterButtons();
 
 
-function calculateImprisonment(incarcerationDate, releaseDate) {
+function calculateImprisonment(incarcerationDate, releaseDate, inExile = false) {
     const today = releaseDate ? new Date(releaseDate) : new Date();
     const startDate = new Date(incarcerationDate);
 
@@ -61,7 +61,8 @@ function calculateImprisonment(incarcerationDate, releaseDate) {
 
     if (!years || isNaN(years)) return null
 
-    return `IMPRISONED FOR ${years} YEARS, ${months} MONTHS, ${days} DAYS`;
+    const firstWord = inExile ? 'IN EXILE' : 'IMPRISONED'
+    return `${firstWord} FOR ${years} YEARS, ${months} MONTHS, ${days} DAYS`;
 }
 
 
@@ -146,7 +147,8 @@ function renderData(records) {
         const AKA = fields["AKA"] ?? null; // Replaced with Release Date
         const currentImprisonment = "Unknown"; // Field not found in dataset
 
-        const timeSpentInPrison = calculateImprisonment(fields["Incarceration Date"], fields["Release Date"] ?? null)
+        const startPunishmentDate = fields["In Exile"] ? fields["In Exile Since"] : fields["Incarceration Date"]
+        const timeSpentInPrison = calculateImprisonment(startPunishmentDate, fields["Release Date"] ?? null, fields["In Exile"])
 
         const fieldToClassMap = {
             Sting: 'stings',
@@ -257,7 +259,7 @@ function renderData(records) {
             </section>
         </main>
         <div class="currentImprisonment">
-        ${fields["In Exile"] ? 'In Exile' : (timeSpentInPrison ?? '')}
+        ${timeSpentInPrison}
         </div>
         <section class="moreInfo">
         <section class="header">
