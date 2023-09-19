@@ -8,7 +8,7 @@ window.filters["ideologies"] = []
 window.filters["states"] = []
 
 function createFilterButtons() {
-    const filters = ["All cases", "Stings", "Cooperators", "In Custody", "Released", "Awaiting Trial"];
+    const filters = ["All cases", "In Exile", "In Custody", "Released", "Awaiting Trial"];
     const filterContainer = document.getElementById("filters");
 
     filters.forEach((filter, index) => {
@@ -153,17 +153,19 @@ function renderData(records) {
         const fieldToClassMap = {
             Sting: 'stings',
             "Involves Informant": 'cooperators',
+            "In Exile": 'inExile',
             "In Custody": 'inCustody',
             Released: 'released',
             "Awaiting Trial": 'awaitingTrial'
         };
 
         const classNames = Object.keys(fieldToClassMap).filter(f => fields[f]).map(f => fieldToClassMap[f]);
-        classNames.push(fields["Affiliation"])
+        if (fields["Affiliation"] && fields["Affiliation"][0]) classNames.push(fields["Affiliation"][0].replace(/[^a-zA-Z0-9]/g, '-').toLowerCase())
         classNames.push(fields["Institution State"])
 
         if (fields["Institution State"]) window.filters["states"].push(fields["Institution State"])
-        if (fields["Affiliation"]) window.filters["affiliations"].push(fields["Affiliation"])
+        if (fields["Affiliation"] && fields["Affiliation"][0]) window.filters["affiliations"].push(fields["Affiliation"][0])
+
         if (fields["Ideologies"] && fields["Ideologies"].length) {
             fields["Ideologies"].forEach((ideology) => {
                 classNames.push(ideology.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase());
@@ -282,7 +284,9 @@ function renderData(records) {
     });
 
     window.filters["states"] = removeDuplicates(window.filters["states"])
+    console.log(window.filters["affiliations"])
     window.filters["affiliations"] = removeDuplicates(window.filters["affiliations"])
+    console.log(window.filters["affiliations"])
     window.filters["ideologies"] = removeDuplicates(window.filters["ideologies"])
     populateFiltersFromWindowObject();
 
@@ -290,18 +294,20 @@ function renderData(records) {
 
 
 function initializeFilterListeners() {
-    const affiliationSelect = document.querySelector("#ideologies-filter");
+    const ideologiesSelect = document.querySelector("#ideologies-filter");
+    const affiliationSelect = document.querySelector("#affiliations-filter");
     const stateSelect = document.querySelector("#state-filter");
 
     affiliationSelect.addEventListener("change", filterArticles);
+    ideologiesSelect.addEventListener("change", filterArticles);
     stateSelect.addEventListener("change", filterArticles);
 }
 
 function filterArticles() {
     // Get selected options
     const selectedIdeologies = document.querySelector("#ideologies-filter").value.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+    const selectedAffiliations = document.querySelector("#affiliations-filter").value.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
     const selectedState = document.querySelector("#state-filter").value;
-    console.log(selectedIdeologies)
 
     // Get all articles with the 'prisoner' class
     const articles = document.querySelectorAll("article.prisoner");
@@ -312,6 +318,12 @@ function filterArticles() {
         // Check if article should be shown based on affiliation
         if (selectedIdeologies) {
             shouldShow = article.classList.contains(selectedIdeologies);
+        }
+
+        // Check if article should be shown based on state
+        if (shouldShow && selectedAffiliations) {
+            console.log(selectedAffiliations)
+            shouldShow = article.classList.contains(selectedAffiliations);
         }
 
         // Check if article should be shown based on state
@@ -370,6 +382,7 @@ function populateFiltersFromWindowObject() {
     // populateSingleSelect("#affiliation-filter", affiliations);
     populateSingleSelect("#state-filter", states);
     populateSingleSelect("#ideologies-filter", ideologies);
+    populateSingleSelect("#affiliations-filter", affiliations);
     initializeFilterListeners();
 
 }
