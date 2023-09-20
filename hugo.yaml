@@ -12,9 +12,11 @@ Params:
   copyright: "2023 National Political Prisoner Coalition"
   footerLinks:
     - name: "About"
-      href: "/about"
+      href: "/about_us"
     - name: "Privacy"
       href: "/privacy"
+    - name: "Terms"
+      href: "/terms"
 
   database:
     views:

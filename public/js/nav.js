@@ -1,6 +1,39 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollTopBtn = document.getElementById("scrollTop");
+
+    // Function to scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Listen for button clicks to scroll to the top
+    scrollTopBtn.addEventListener("click", scrollToTop);
+
+    // Function to handle scrolling logic
+    function handleScroll() {
+        const currentScroll = window.pageYOffset;
+        const screenHeight = window.innerHeight;
+
+        // Show or hide button based on scroll position
+        if (currentScroll > screenHeight) {
+            scrollTopBtn.style.opacity = "1";
+        } else {
+            scrollTopBtn.style.opacity = "0";
+        }
+    }
+
+    // Listen for scroll events
+    window.addEventListener("scroll", handleScroll);
+});
+
+
+
 /**
- * Header
- */
+* Header
+*/
 function globalNavDropdowns(e) {
     var t = this;
     this.container = document.querySelector(e), this.root = this.container.querySelector(".navRoot"), this.primaryNav = this.root.querySelector(".navSection.primary"), this.primaryNavItem = this.root.querySelector(".navSection.primary .rootLink:last-child"), this.secondaryNavItem = this.root.querySelector(".navSection.secondary .rootLink:first-child"), this.checkCollision(), window.addEventListener("load", this.checkCollision.bind(this)), window.addEventListener("resize", this.checkCollision.bind(this)), this.container.classList.add("noDropdownTransition"), this.dropdownBackground = this.container.querySelector(".dropdownBackground"), this.dropdownBackgroundAlt = this.container.querySelector(".alternateBackground"), this.dropdownContainer = this.container.querySelector(".dropdownContainer"), this.dropdownArrow = this.container.querySelector(".dropdownArrow"), this.dropdownRoots = Strut.queryArray(".hasDropdown", this.root), this.dropdownSections = Strut.queryArray(".dropdownSection", this.container).map(function (e) {

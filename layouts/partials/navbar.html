@@ -1,190 +1,261 @@
-<div id="navcnt">
-    <div class="site-header-top-bar">
-        <nav class="site-header-section-toggle" aria-label="Section Navigation">
-            <ul class="site-header-section-toggle-items">
-
-                <li class="site-header-section-toggle-item"><a href="/donate" class="site-header-section-toggle-link"
-                        data-drupal-link-system-path="node/37">Donate</a></li>
-            </ul>
-        </nav>
-        <nav class="site-header-utility-nav" aria-label="Secondary Navigation">
-            <ul class="site-header-utility-nav-items">
-                <li class="site-header-utility-nav-item">
-                    <div class="site-header-top-bar-button"><a href="/contact" class="btn -plain "
-                            aria-expanded="false">Contact
-                            Us</a>
-
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <header class="globalNav noDropdownTransition">
-
-        <div class="container-lg">
-            <ul class="navRoot">
-                <!-- Logo Section -->
-                <li class="navSection logo">
-                    <a class="rootLink item-home colorize" href="/">
-                        <h1>
-                            <img id="headLogo" src="/logo.svg" />
-                        </h1>
+<div class="site-header-top-bar">
+    <nav class="site-header-section-toggle" aria-label="Section Navigation">
+        <ul class="site-header-section-toggle-items">
+            <li class="site-header-section-toggle-item">
+                <a href="/" class="site-header-section-toggle-link" data-active="true">NPPC</a>
+            </li>
+            <li class="site-header-section-toggle-item">
+                <a href="/donate" class="site-header-section-toggle-link" data-drupal-link-system-path="node/37">Donate</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="site-header-utility-nav" aria-label="Secondary Navigation">
+        <ul class="site-header-utility-nav-items">
+            <li class="site-header-utility-nav-item">
+                <div class="site-header-top-bar-button">
+                    <a href="/contact" class="btn -plain " aria-expanded="false">
+                        Contact
+                            Us
                     </a>
-                </li>
-                <!-- Primary Nav -->
-                <li class="navSection primary">
-                    <a class="rootLink colorize" href="/get-involved/prisoners">Prisoners</a>
-                    <a class="rootLink colorize" href="/news">News</a>
-                    {{ range .Site.Menus.main }}
-                    <a class="rootLink hasDropdown colorize" data-dropdown="{{ .Identifier }}">{{ .Name }}</a>
-                    {{ end }}
-                </li>
-                <!-- Secondary Nav -->
-                <li class="navSection secondary">
-                    <a class="rootLink item-support colorize btn" id="donateBtn" href="/donate">Donate</a>
-                </li>
-                <!-- Mobile Nav -->
-                <li class="navSection mobile">
-                    <a class="rootLink item-mobileMenu colorize">
-                        <h2>Menu</h2>
-                    </a>
-                    <div class="popup">
-                        <div class="popupContainer">
-                            <a class="popupCloseButton">Close</a>
-
-                            <div>
-                                <a class="rootLink" href="/get-involved/prisoners">Prisoners</a>
-                                <a class="rootLink" href="/news">News</a>
-                                <a class="rootLink" href="/press-releases">Press Releases</a>
-
-
-                                <h4>About</h4>
-                                <div class="mobileSecondaryNav">
-                                    <ul>
-                                        <li><a href="/about/about-us">About Us</a></li>
-                                        <li><a href="/about/board-of-directors">Board of Directors</a></li>
-                                        <li><a href="/about/staff">Staff</a></li>
-                                        <li><a href="/about/partners">Partners</a></li>
-                                        <li><a href="/about/careers-internships">Careers & Internships</a></li>
-                                        <li><a href="/about/frequently-asked-questions">Frequently Asked Questions</a>
-                                        </li>
-                                        <li><a href="/about/contact-us">Contact Us</a></li>
-                                    </ul>
-                                </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+<header class="globalNav noDropdownTransition">
+    <div class="container-lg">
+        <ul class="navRoot">
+            <!-- Logo Section -->
+            <li class="navSection logo">
+                <a class="rootLink item-home colorize" href="/">
+                    <h1>
+                        <img id="headLogo" src="/logo.svg">
+                    </h1>
+                </a>
+            </li>
+            <!-- Primary Nav -->
+            <li class="navSection primary">
+                <a class="rootLink colorize" href="/get-involved/prisoners">Prisoners</a>
+                <a class="rootLink colorize" href="/news">News</a>
+                {{ range .Site.Menus.main }}
+                <a class="rootLink hasDropdown colorize" data-dropdown="{{ .Identifier }}">{{ .Name }}</a>
+                {{ end }}
+            </li>
+            <!-- Secondary Nav -->
+            <li class="navSection secondary">
+                <a class="rootLink item-support colorize btn" id="donateBtn" href="/donate">Donate</a>
+            </li>
+            <!-- Mobile Nav -->
+            <li class="navSection mobile">
+                <a class="rootLink item-mobileMenu colorize">
+                    <h2>Menu</h2>
+                </a>
+                <div class="popup">
+                    <div class="popupContainer">
+                        <a class="popupCloseButton">Close</a>
+                        <div>
+                            <a class="rootLink" href="/get-involved/prisoners">Prisoners</a>
+                            <a class="rootLink" href="/news">News</a>
+                            <a class="rootLink" href="/press-releases">Press Releases</a>
+                            <h4>About</h4>
+                            <div class="mobileSecondaryNav">
+                                <ul>
+                                    <li>
+                                        <a href="/about/about-us">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/board-of-directors">Board of Directors</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/staff">Staff</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/partners">Partners</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/careers-internships">Careers & Internships</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/frequently-asked-questions">Frequently Asked Questions</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/contact-us">Contact Us</a>
+                                    </li>
+                                </ul>
                             </div>
-
-                            <div>
-                                <h4>Learn More</h4>
-                                <div class="mobileSecondaryNav">
-                                    <ul>
-                                        <li><a href="/learn-more/annual-report">Annual Report</a></li>
-                                        <li><a href="/learn-more/events">Events</a></li>
-                                        <li><a href="/learn-more/history">History</a></li>
-                                        <li><a href="/learn-more/contact-us">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div>
-                                <h4>Get Involved</h4>
-                                <div class="mobileSecondaryNav">
-                                    <ul>
-                                        <li><a href="/get-involved/donate">Donate</a></li>
-                                        <li><a href="/get-involved/events">Events</a></li>
-                                        <li><a href="/get-involved/volunteer">Volunteer</a></li>
-                                        <li><a href="/get-involved/write-a-political-prisoner">Write a Political
-                                                Prisoner</a></li>
-                                        <li><a href="/get-involved/contact-us">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
-                            <a class="mobileSignIn" data-adroll-segment="submit_two" href="/donate">Donate</a>
                         </div>
+                        <div>
+                            <h4>Learn More</h4>
+                            <div class="mobileSecondaryNav">
+                                <ul>
+                                    <li>
+                                        <a href="/learn-more/annual-report">Annual Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="/learn-more/events">Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="/learn-more/history">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="/learn-more/contact-us">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Get Involved</h4>
+                            <div class="mobileSecondaryNav">
+                                <ul>
+                                    <li>
+                                        <a href="/get-involved/donate">Donate</a>
+                                    </li>
+                                    <li>
+                                        <a href="/get-involved/events">Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="/get-involved/volunteer">Volunteer</a>
+                                    </li>
+                                    <li>
+                                        <a href="/get-involved/write-a-political-prisoner">
+                                            Write a Political
+                                                Prisoner
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/get-involved/contact-us">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="mobileSignIn" data-adroll-segment="submit_two" href="/donate">Donate</a>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Dropdown Section -->
+    <div class="dropdownRoot">
+        <div class="dropdownBackground" style="transform: translateX(452px) scaleX(0.707692) scaleY(1.1075);">
+            <div class="alternateBackground" style="transform: translateY(255.53px);"></div>
         </div>
-        <!-- Dropdown Section -->
-        <div class="dropdownRoot">
-            <div class="dropdownBackground" style="transform: translateX(452px) scaleX(0.707692) scaleY(1.1075);">
-                <div class="alternateBackground" style="transform: translateY(255.53px);"></div>
+        <div class="dropdownArrow" style="transform: translateX(636px) rotate(45deg);"></div>
+        <div class="dropdownContainer" style="transform: translateX(452px); width: 368px; height: 443px;">
+            <div class="dropdownSection right" data-dropdown="about">
+                <div class="dropdownContent">
+                    <ul class="linkGroup linkList aboutGroup">
+                        <li>
+                            <a class="linkContainer" href="/about/about-us">
+                                <h3 class="linkTitle">About Us</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/board-of-directors">
+                                <h3 class="linkTitle">Board of Directors</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/staff">
+                                <h3 class="linkTitle">Staff</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/partners">
+                                <h3 class="linkTitle">Partners</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/careers-internships">
+                                <h3 class="linkTitle">Careers & Internships</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/frequently-asked-questions">
+                                <h3 class="linkTitle">FAQ</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/about/contact-us">
+                                <h3 class="linkTitle">Contact Us</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="dropdownArrow" style="transform: translateX(636px) rotate(45deg);"></div>
-            <div class="dropdownContainer" style="transform: translateX(452px); width: 368px; height: 443px;">
-
-                <div class="dropdownSection right" data-dropdown="about">
-                    <div class="dropdownContent">
-                        <ul class="linkGroup linkList aboutGroup">
-                            <li><a class="linkContainer" href="/about/about-us">
-                                    <h3 class="linkTitle">About Us</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/board-of-directors">
-                                    <h3 class="linkTitle">Board of Directors</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/staff">
-                                    <h3 class="linkTitle">Staff</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/partners">
-                                    <h3 class="linkTitle">Partners</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/careers-internships">
-                                    <h3 class="linkTitle">Careers & Internships</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/frequently-asked-questions">
-                                    <h3 class="linkTitle">FAQ</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/about/contact-us">
-                                    <h3 class="linkTitle">Contact Us</h3>
-                                </a></li>
-                        </ul>
-                    </div>
+            <div class="dropdownSection right" data-dropdown="learn-more">
+                <div class="dropdownContent">
+                    <ul class="linkGroup linkList learn-moreGroup">
+                        <li>
+                            <a class="linkContainer" href="/learn-more/annual-report">
+                                <h3 class="linkTitle">Annual Report</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/learn-more/events">
+                                <h3 class="linkTitle">Events</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/learn-more/history">
+                                <h3 class="linkTitle">History</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/learn-more/contact-us">
+                                <h3 class="linkTitle">Contact Us</h3>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-
-                <div class="dropdownSection right" data-dropdown="learn-more">
-                    <div class="dropdownContent">
-                        <ul class="linkGroup linkList learn-moreGroup">
-                            <li><a class="linkContainer" href="/learn-more/annual-report">
-                                    <h3 class="linkTitle">Annual Report</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/learn-more/events">
-                                    <h3 class="linkTitle">Events</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/learn-more/history">
-                                    <h3 class="linkTitle">History</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/learn-more/contact-us">
-                                    <h3 class="linkTitle">Contact Us</h3>
-                                </a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="dropdownSection right" data-dropdown="get-involved">
-                    <div class="dropdownContent">
-                        <ul class="linkGroup linkList get-involvedGroup">
-                            <li><a class="linkContainer" href="/get-involved/birthdates">
-                                    <h3 class="linkTitle">Birthdates</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/get-involved/events">
-                                    <h3 class="linkTitle">Events</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/get-involved/volunteer">
-                                    <h3 class="linkTitle">Volunteer</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/get-involved/write-a-political-prisoner">
-                                    <h3 class="linkTitle">Prisoner Outreach</h3>
-                                </a></li>
-                            <li><a class="linkContainer" href="/get-involved/contact-us">
-                                    <h3 class="linkTitle">Contact Us</h3>
-                                </a></li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="dropdownSection right" data-dropdown="get-involved">
+                <div class="dropdownContent">
+                    <ul class="linkGroup linkList get-involvedGroup">
+                        <li>
+                            <a class="linkContainer" href="/get-involved/birthdates">
+                                <h3 class="linkTitle">Birthdates</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/get-involved/events">
+                                <h3 class="linkTitle">Events</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/get-involved/volunteer">
+                                <h3 class="linkTitle">Volunteer</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/get-involved/write-a-political-prisoner">
+                                <h3 class="linkTitle">Prisoner Outreach</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkContainer" href="/get-involved/contact-us">
+                                <h3 class="linkTitle">Contact Us</h3>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-    </header>
+    </div>
+</header>
+<div id="scrollTop">
+    <svg
+        fill="#000000"
+        height="800px"
+        width="800px"
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 330 330"
+        xml:space="preserve"
+    >
+        <path id="XMLID_224_" d="M325.606,229.393l-150.004-150C172.79,76.58,168.974,75,164.996,75c-3.979,0-7.794,1.581-10.607,4.394
+	l-149.996,150c-5.858,5.858-5.858,15.355,0,21.213c5.857,5.857,15.355,5.858,21.213,0l139.39-139.393l139.397,139.393
+	C307.322,253.536,311.161,255,315,255c3.839,0,7.678-1.464,10.607-4.394C331.464,244.748,331.464,235.251,325.606,229.393z"/>
+    </svg>
 </div>

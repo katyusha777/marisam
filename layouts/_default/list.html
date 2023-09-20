@@ -1,70 +1,81 @@
 {{ define "main" }}
-
-
-<main id="maincontent">
-    <article class="grid-container">
-        <header class="hero" data-hero-type="standard" data-no-margin="true" data-section-nav="false"
-            data-hashtag="false">
-            <div class="inner">
-                <div class="background">
-                    <picture>
-                        {{ with .Params.header_image }}
-                        <div class="header-image">
-                            <img src="{{ . }}" alt="{{ $.Title }}" width="1680" height="978">
-                        </div>
-                        {{ end }}
-                    </picture>
-                </div>
-                <div class="content">
-                    <div class="text">
-                        <h1 class="h1 -small">{{ $.Title }}</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="faceted-search resources">
-            <div class="faceted-search-inner">
-                <div class="faceted-search-content">
-                    <div class="faceted-search-content-inner">
-                        <div class="faceted-search-results" style="margin-top: 1rem;">
-                            <div class="faceted-search-results-inner">
-                                {{ range (.Paginate .RegularPagesRecursive).Pages }}
-                                <article class="item js-link-event">
-                                    <a href="{{ .Permalink }}" class="js-link-event-link">
-                                        {{ with .Params.header_image }}
-                                        <picture>
-                                            <img src="{{ . }}" width="475" height="350" alt="{{ $.Title }}"
-                                                loading="lazy">
-                                        </picture>
-                                        {{ end }}
-                                        <div class="item-top">
-                                            <h3 class="h4">
-                                                {{ .Title }}
-                                            </h3>
-                                            <p>{{ .Params.description }}</p>
-                                        </div>
-                                        <div class="item-bottom">
-                                            <span class="btn -go">
-                                            </span>
-                                        </div>
-                                    </a>
-                                </article>
-                                {{ end }}
-                            </div>
-                            <svg class="scribble-stroke" viewBox="0 0 1979 1509" aria-hidden="true">
-                                <use xlink:href="#scribble-stroke-path">
-                                </use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+<header
+    class="hero"
+    id="heroHome"
+    data-hero-type="home"
+    data-no-margin="false"
+    data-section-nav="true"
+    data-hashtag="false"
+>
+    <div class="inner">
+        <div
+            class="background -animated fadeIn"
+            data-animation="fadeIn"
+            data-animation-delay="100"
+            data-animation-duration="1500"
+            style="animation-delay: 100ms; animation-duration: 1500ms;"
+        >
+            <div
+                class="background -animated fadeIn"
+                data-animation="fadeIn"
+                data-animation-delay="100"
+                data-animation-duration="1500"
+                style="animation-delay: 100ms; animation-duration: 1500ms;"
+            >
+                <video
+                    autoplay=""
+                    loop=""
+                    muted=""
+                    playsinline=""
+                    class="video-background"
+                >
+                    <source src="/videos/home/video.mp4" type="video/mp4">
+                    <source src="/videos/home/video.webm" type="video/webm">
+                </video>
             </div>
         </div>
-    </article>
+        <div class="content">
+            <div class="text">
+                <h1 class="h1 naacp-title">
+                    <div
+                        class="top-text -animated fadeInUp"
+                        data-animation="fadeInUp"
+                        data-animation-delay="750"
+                        data-animation-duration="1500"
+                        style="animation-delay: 750ms; animation-duration: 1500ms;"
+                    >
+                        <span>Justice</span>
+                    </div>
+                    <div
+                        class="highlight -animated fadeInUp"
+                        data-animation="fadeInUp"
+                        data-animation-delay="1000"
+                        data-animation-duration="1500"
+                        style="animation-delay: 1000ms; animation-duration: 1500ms;"
+                    >
+                        <span>No Matter What</span>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+<main id="maincontent">
+    <section id="posts-list-cnt">
+        {{ range (.Paginate .RegularPagesRecursive).Pages }}
+        <article class="list-item">
+            <a href="{{ .Permalink }}" class="js-link-event-link">
+                <div class="line"></div>
+                {{ with .Params.category }}
+                <h4 class="category">{{ . }}</h4>
+                {{ end }}
+                <h3 class="h4">
+                    {{ .Title }}
+                </h3>
+            </a>
+        </article>
+        {{ end }}
+    </section>
 </main>
-
-
-
-
 </div>
 {{ end }}

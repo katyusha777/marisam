@@ -1,8 +1,7 @@
 ---
-title: "My 2nd Post"
+title: "Beyond Bars: A Path Forward from 50 Years of Mass Incarceration in the United States"
 date: 2022-11-20T09:03:20-08:00
-description: "This is a short description of the blog post."
-header_image: "/images/hero-for-media.webp"
+category: Publication
 ---
 
 ## Introduction

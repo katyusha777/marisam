@@ -2,26 +2,22 @@
     <div class="site-footer-inner">
         <div class="site-footer-top">
             {{ partial "newsletter.html" . }}
-
-
-
         </div>
         <div class="site-footer-bottom">
             <nav class="site-footer-nav" aria-label="Footer Navigation">
                 <ul>
-
                     {{ range .Site.Params.footerLinks }}
                     <li>
                         <a href="{{ .href }}" title="{{ .name }}">{{ .name }}</a>
                     </li>
                     {{ end }}
-
                 </ul>
             </nav>
             <div class="site-footer-copyright">
-                <p>© {{ .Site.Params.Copyright }} </p>
+                <p>© {{ .Site.Params.Copyright }}</p>
             </div>
-        </div><svg class="frame-texture" viewBox="0 0 483.45 32.11" aria-hidden="true">
+        </div>
+        <svg class="frame-texture" viewBox="0 0 483.45 32.11" aria-hidden="true">
             <use xlink:href="#frame-texture-path"></use>
         </svg>
     </div>

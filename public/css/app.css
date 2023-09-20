@@ -19,6 +19,7 @@
 }
 
 #heroHome {
+    min-height: 500px;
     height: 100vh
 }
 
@@ -26,6 +27,82 @@
     height: 100vh
 }
 
+
+.isNode.section {
+    background-color: #000;
+}
+
+/* Basic Styling */
+#posts-list-cnt .category {
+    color: #FFF;
+    margin: 1.5rem 0 1rem;
+
+}
+
+#posts-list-cnt h3 {
+    text-transform: capitalize;
+    font-size: 23px;
+
+}
+
+#posts-list-cnt .line {
+    height: 2px;
+    background-color: #646e70;
+    position: relative;
+    margin-bottom: 1;
+}
+
+#posts-list-cnt .line:before {
+    content: "";
+    background-color: #646e70;
+    height: 2px;
+    position: absolute;
+    right: 2rem;
+    transform: rotate(45deg);
+    width: 60px;
+}
+
+#posts-list-cnt .line:after {
+    content: "";
+    background-color: #646e70;
+    height: 2px;
+    position: absolute;
+    right: 1rem;
+    transform: rotate(45deg);
+    width: 50px;
+}
+
+#posts-list-cnt {
+    display: grid;
+    gap: 16px;
+    max-width: 100%;
+    width: 980px;
+    margin: 0 auto;
+    /* Spacing between the grid items */
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+    #posts-list-cnt {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns */
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+    #posts-list-cnt {
+        grid-template-columns: 1fr;
+        /* 1 column */
+    }
+}
+
+
+article.list-item {}
+
+article.list-item h3 {
+    color: #FFF;
+}
 
 @media screen and (min-width: 1024px) {
 

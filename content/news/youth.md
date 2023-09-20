@@ -1,8 +1,7 @@
 ---
-title: "My First Post"
+title: "Effective Alternatives to Youth Incarceration"
 date: 2022-11-20T09:03:20-08:00
-description: "This is a short description of the blog post."
-header_image: "/images/hero-for-media.webp"
+category: Report
 ---
 
 ## Introduction
