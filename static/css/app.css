@@ -39,6 +39,15 @@ html {
 }
 
 
+.text-block,
+.text-block h2 {
+    color: #fff;
+}
+
+.text-block h2 {
+    margin-bottom: 40px;
+}
+
 .btn,
 .resolutions .faceted-search-toggles .faceted-search-advanced-search .advanced-search-toggle {
     background: var(--button-color);
