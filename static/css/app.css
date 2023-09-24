@@ -20,7 +20,8 @@
 
 #heroHome {
     min-height: 500px;
-    height: 100vh
+    height: 100vh;
+    margin-bottom: 0 !important;
 }
 
 #heroHome video {
@@ -32,11 +33,42 @@
     background-color: #000;
 }
 
+#homeMain h2 {
+    font-size: 44px;
+}
+
 /* Basic Styling */
 #posts-list-cnt .category {
     color: #FFF;
     margin: 1.5rem 0 1rem;
 
+}
+
+.fifty-fifty {
+    margin-bottom: 0rem !important;
+}
+
+.fifty-fifty .inner {
+    max-width: 1024px !important;
+}
+
+.fifty-fifty .image {
+    max-width: 340px !important;
+    margin-right: 2rem;
+}
+
+#homeMain #posts-list-cnt {
+    padding-bottom: 5rem;
+}
+
+#homeMain {
+    background: #000;
+    padding-top: 8rem;
+    color: #fff;
+}
+
+#homeMain h2 {
+    color: #FFF;
 }
 
 #posts-list-cnt h3 {

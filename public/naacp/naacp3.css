@@ -9466,7 +9466,7 @@ not all and (min-resolution:0.001dpcm) {
 }
 
 .fifty-fifty .inner {
-    max-width: 1500px;
+    max-width: 8;
     margin-left: auto;
     margin-right: auto
 }
