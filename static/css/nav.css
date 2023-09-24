@@ -985,10 +985,10 @@ header.globalNav {
     right: 0;
     z-index: 500;
     height: 50px;
-    background: #000000eb;
+    background: transparent;
     padding: 0.9rem 0;
     height: 80px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: brightness(120%) contrast(100%) saturate(100%) blur(15px) hue-rotate(0deg);
     z-index: 1000000000000;
 }
 
@@ -1123,14 +1123,24 @@ header.globalNav .navSection.logo .rootLink {
     padding-left: 20px !important;
 }
 
+.site-header-top-bar-button a:after {
+    display: none !important;
+}
+
 header.globalNav .navSection.secondary .rootLink:last-child {
     padding-right: 20px !important;
+}
+
+.hero[data-hero-type=home] .h1 .highlight>span:after {
+    display: none;
 }
 
 header.globalNav .navSection.primary .rootLink {
     font-weight: bold;
     color: #FFF;
     text-transform: uppercase;
+    font-size: 18px;
+    padding: 0 18px;
 }
 
 
@@ -2654,6 +2664,7 @@ header.globalNav .mobileSecondaryNav a {
     border-radius: 8px;
     text-transform: uppercase;
     font-weight: bold !important;
+    margin-left: 18px;
 }
 
 #headLogo {

@@ -40,9 +40,10 @@
                 {{ range .Site.Menus.main }}
                 <a class="rootLink hasDropdown colorize" data-dropdown="{{ .Identifier }}">{{ .Name }}</a>
                 {{ end }}
+                <a class="rootLink item-support colorize btn" id="donateBtn" href="/donate">Donate</a>
             </li>
             <!-- Secondary Nav -->
-            <li class="navSection secondary">
+            <li class="navSection secondary" style="display: none;">
                 <a class="rootLink item-support colorize btn" id="donateBtn" href="/donate">Donate</a>
             </li>
             <!-- Mobile Nav -->

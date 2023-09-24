@@ -1,7 +1,70 @@
+@font-face {
+    font-family: 'Verlag';
+    src: url('/verlag-font/verlag_bold-webfont.woff2') format('woff2'),
+        url('/verlag-font/verlag_bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('/verlag-font/verlag-black-webfont.woff2') format('woff2'),
+        url('/verlag-font/verlag-black-webfont.woff') format('woff');
+    font-weight: bolder;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('/verlag-font/verlag-book-webfont.woff2') format('woff2'),
+        url('/verlag-font/verlag-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body,
+html {
+    background-color: #000;
+    font-family: 'Verlag', Arial, Helvetica, sans-serif;
+}
+
+
 .btn,
 .resolutions .faceted-search-toggles .faceted-search-advanced-search .advanced-search-toggle {
     background: var(--button-color);
     color: #FFF;
+}
+
+.site-footer-bottom {
+    padding-top: 42px;
+}
+
+.testimonial {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.testimonial .text cite {
+    font-family: "Verlag" !important;
+    padding-top: 12px !important;
+    font-size: 16px !important;
+    display: block;
+}
+
+
+.site-footer {
+    max-width: 1024px;
+    margin: auto;
 }
 
 .site-header-inner {
@@ -57,6 +120,11 @@
     margin-right: 2rem;
 }
 
+#maincontent {
+    position: relative;
+    z-index: 10000;
+}
+
 #homeMain #posts-list-cnt {
     padding-bottom: 5rem;
 }
@@ -79,14 +147,14 @@
 
 #posts-list-cnt .line {
     height: 2px;
-    background-color: #646e70;
+    background-color: #FFF;
     position: relative;
     margin-bottom: 1;
 }
 
 #posts-list-cnt .line:before {
     content: "";
-    background-color: #646e70;
+    background-color: #FFF;
     height: 2px;
     position: absolute;
     right: 2rem;
@@ -96,7 +164,7 @@
 
 #posts-list-cnt .line:after {
     content: "";
-    background-color: #646e70;
+    background-color: #FFF;
     height: 2px;
     position: absolute;
     right: 1rem;
@@ -175,6 +243,15 @@ article.list-item h3 {
     .hero[data-hero-type=home] .inner {
         min-height: calc(100vh);
     }
+}
+
+#donateBtn:after {
+    display: none;
+}
+
+.hero {
+    margin-top: -80px;
+
 }
 
 .hero-inset .bgImage {
