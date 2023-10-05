@@ -216,13 +216,13 @@ Strut.isRetina = window.devicePixelRatio > 1.3, Strut.mobileViewportWidth = 670,
     var e = this;
     if (Strut.isMobileViewport) return;
     if (e.compact == 1) {
-        var t = document.body.clientWidth,
-            n = e.primaryNav.getBoundingClientRect();
-        n.left + n.width / 2 > t / 2 && (e.container.classList.remove("compact"), e.compact = !1)
-    } else {
-        var r = e.primaryNavItem.getBoundingClientRect(),
-            i = e.secondaryNavItem.getBoundingClientRect();
-        r.right > i.left && (e.container.classList.add("compact"), e.compact = !0)
+        // var t = document.body.clientWidth,
+        //     n = e.primaryNav.getBoundingClientRect();
+        // n.left + n.width / 2 > t / 2 && (e.container.classList.remove("compact"), e.compact = !1)
+    // } else {
+    //     var r = e.primaryNavItem.getBoundingClientRect(),
+    //         i = e.secondaryNavItem.getBoundingClientRect();
+    //     r.right > i.left && (e.container.classList.add("compact"), e.compact = !0)
     }
 }, globalNavDropdowns.prototype.openDropdown = function (e) {
     var t = this;
