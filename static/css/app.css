@@ -75,6 +75,15 @@ html {
     margin: auto;
 }
 
+.wysiwyg-content h3 {
+    color: #FFF !important;
+    font-size: 23px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #FFF;
+    padding-bottom: 1rem;
+    margin-top: 5rem;
+}
+
 .site-header-inner {
     backdrop-filter: blur(3px);
 }
