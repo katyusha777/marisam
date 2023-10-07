@@ -19,6 +19,29 @@
         {{ .Site.Title }}
         {{ end }}
     </title>
+    <!-- Include Vue.js app CSS -->
+    <link rel="stylesheet" href="/vue/app.css">
+
+    <!-- Include Vue.js app JavaScript -->
+    <script src="/vue/app.js" defer></script>
+    <style>
+        .grid {
+            width:100%
+        }
+
+        .ant-select-dropdown {
+            z-index: 99999;
+        }
+
+        #filters .ant-select-selector .ant-select-selection-search-input {
+            border:none;
+            outline:none;
+        }
+
+        #filters, .prisoner {
+            width:unset !important;
+        }
+    </style>
 </head>
 <body class="{{ if .IsNode }}isNode{{ end }} {{.Kind}}">
 {{ partial "navbar.html" . }}
@@ -98,5 +121,6 @@
         <path class="cls-2" d="M207.25,34.6c-8.25-8-16.79-14.33-24.87-18.53-78.1-40.6-158.7.3-177.8,71.4a132.62,132.62,0,0,0-2.67,57c16.14.58,30.1.64,39.67.64C84,145.07,160.24,93.21,207.25,34.6Z" style="fill: #ffcd00;"/>
     </g>
 </svg>
+
 </body>
 </html>

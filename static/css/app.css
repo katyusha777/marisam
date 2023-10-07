@@ -84,6 +84,14 @@ html {
     margin-top: 5rem;
 }
 
+.site-footer-signup-submit {
+    background: var(--secondary-color) !important;
+}
+
+.site-footer-signup-submit:hover {
+    background: var(--primary-color) !important;
+}
+
 .site-header-inner {
     backdrop-filter: blur(3px);
 }
