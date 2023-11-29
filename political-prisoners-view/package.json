@@ -11,9 +11,12 @@
   "dependencies": {
     "ant-design-vue": "4.x",
     "axios": "^1.5.1",
+    "chart.js": "^4.4.0",
     "postcss-prefixer": "^3.0.0",
     "vue": "^3.2.13",
-    "vue-class-component": "^8.0.0-0"
+    "vue-chart-3": "^3.1.8",
+    "vue-class-component": "^8.0.0-0",
+    "vue3-autocounter": "^1.0.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",

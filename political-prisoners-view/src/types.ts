@@ -19,9 +19,9 @@ export interface Prisoner {
     Website?: any
     Facebook?: any
     Affiliation: any
-    imprisonedFor: string
+    imprisonedFor: number
     calculatedPunishment: string
-    inExileFor: string
+    inExileFor: number
     Era: any
     State: any
     Race?: any
