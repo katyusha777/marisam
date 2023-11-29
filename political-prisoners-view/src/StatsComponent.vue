@@ -105,27 +105,27 @@ const sumElements: Array<IDisplayElement> = [
   <section id="stats-component">
 
     <div class="" id="counters">
-      <div class="counter flex justify-between mb-32" v-for="element in sumElements">
-        <div class="w-1/2 text-left">
+      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-for="element in sumElements">
+        <div class="w-full md:w-1/2 text-left">
           <div class="counter-label title-label"><sub>collective</sub>{{element.label}}</div>
           <div class="counter-info pr-16"><p>{{element.info}}</p></div>
         </div>
-        <div class="w-1/2 text-right counter-value pt-12">
+        <div class="w-full md:w-1/2 text-right counter-value pt-12">
           <vue3-autocounter ref='counter' :startAmount='0' :endAmount='sumCounts[element.key]' :duration='5' separator=',' :decimals='0' :autoinit='true'/>
         </div>
       </div>
     </div>
 
     <div id="charts">
-      <div v-for="(element, index) in chartElements" :key="index" class="chart mb-32 flex justify-between">
-        <div v-if="index % 2 === 0" class="w-1/2 text-left">
+      <div v-for="(element, index) in chartElements" :key="index" class="chart mb-24 md:mb-32 flex-col-reverse md:flex-row flex md:justify-between">
+        <div v-if="index % 2 === 0" class="w-full md:w-1/2 text-left">
           <div class="chart-label title-label">{{ element.label }}</div>
           <div><p v-html="element.info"></p></div>
         </div>
-        <div class="w-1/2 chart-value">
+        <div class="w-full md:w-1/2 chart-value mb-12">
           <DoughnutChart :options="chartOptions" :chartData="element.key === 'gender' ? chartDataGender : chartDataRace" />
         </div>
-        <div v-if="index % 2 !== 0" class="w-1/2 text-left">
+        <div v-if="index % 2 !== 0" class="w-full md:w-1/2 text-left">
           <div class="chart-label title-label">{{ element.label }}</div>
           <div><p v-html="element.info"></p></div>
         </div>
@@ -134,11 +134,11 @@ const sumElements: Array<IDisplayElement> = [
 
 
     <div class="" id="counters-small">
-      <div class="counter flex justify-between mb-32" v-for="element in sumElementsSmallNumbers">
-        <div class="w-2/5 text-right counter-value">
+      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-for="element in sumElementsSmallNumbers">
+        <div class="w-full md:w-2/5  counter-value">
           <vue3-autocounter ref='counter' :startAmount='0' :endAmount='sumCounts[element.key]' :duration='5' separator='' :decimals='0' :autoinit='true'/>
         </div>
-       <div class="w-3/5 text-left">
+       <div class="w-full md:w-3/5 text-left">
          <div class="counter-label title-label">{{element.label}}</div>
          <div class="counter-info"><p>{{element.info}}</p></div>
        </div>
@@ -154,6 +154,10 @@ const sumElements: Array<IDisplayElement> = [
 p {
   font-size: 1.2rem;
   line-height: 1.6rem;
+
+  @media (max-width: 800px) {
+    font-size: 1rem;
+  }
 }
 
 #stats-component {
@@ -169,6 +173,11 @@ p {
   margin-bottom: 1rem;
   position: relative;
   font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 800px) {
+    font-size: 2rem;
+    text-transform: none;
+  }
 
   sub {
     position: absolute;
@@ -187,6 +196,15 @@ p {
     line-height: 120px;
     text-align: right;
     font-weight: bold;
+
+    @media (max-width: 800px) {
+      font-size: 5rem;
+      line-height: unset;
+      text-align: left;
+      padding-top: 0;
+      position: relative;
+      top: -40px;
+    }
   }
 }
 
@@ -195,6 +213,10 @@ p {
   .counter-value {
     padding-right: 2rem;
     text-align: right;
+
+    @media (max-width: 800px) {
+      text-align: left;
+    }
   }
 }
 </style>

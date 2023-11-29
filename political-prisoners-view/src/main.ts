@@ -12,5 +12,5 @@ Chart.register(...registerables);
 const app = createApp(App).use(Antd)
 const appStats = createApp(AppStats).use(Antd).component('vue3-autocounter', Vue3autocounter)
 
-app.mount('#app')
+// app.mount('#app')
 appStats.mount('#app-stats')
