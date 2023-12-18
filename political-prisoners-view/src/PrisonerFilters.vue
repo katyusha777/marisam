@@ -37,6 +37,7 @@ const formatOptions = (array: string[]) => array
     .map(item => ({ label: item, value: item }));
 
 const updateSelectedFilters = (key: string, selectedOptions: string[]) => {
+  console.log('Filters updated')
   selectedFilters.value[key] = selectedOptions;
 };
 </script>

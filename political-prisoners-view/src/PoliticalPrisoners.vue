@@ -44,28 +44,22 @@ const fieldFiltersRel: Record<string, keyof PrisonerRecord> = {
 }
 
 
-const debounce = (func: any, wait: any) => {
-  let timeout: any;
-  // @ts-ignore
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      // @ts-ignore
-      func.apply(this, args);
-    }, wait);
-  };
-};
-
-
 
 // Computed property to generate filtered records
 const filteredRecords = computed(() => {
-  return records.value.filter(record => checkPrisonerFilter(record));
+  console.log('Filtering')
+  return records.value.filter((record) => {
+    const filterCheck = checkPrisonerFilter(record)
+    if(record.name.includes('Jessica')) {
+      console.log(record.name, filterCheck)
+    }
+    return filterCheck
+  });
 });
 
-watch(filterObject, (newValue, oldValue) => {
-  // Your logic here
 
+
+watch(filterObject, (newValue, oldValue) => {
   const _filters: Record<string, string[]> = {}
   Object.keys(filterObject.value).forEach((key) => {
     const value = filterObject.value[key]
@@ -96,6 +90,7 @@ const checkFilterValues = (filterValues: string[], prisonerValue: string | strin
 
 const checkPrisonerFilter = (prisoner: PrisonerRecord): boolean => {
   const _filters = cleanFilterObject.value
+
   let recordFilterFailed = false
 
   // @ts-ignore
@@ -120,12 +115,16 @@ const checkPrisonerFilter = (prisoner: PrisonerRecord): boolean => {
     if(!prisonerValue) {
       recordFilterFailed = true
     }
+
+    if(prisoner.name.includes('Jessica')) {
+      console.log({field,prisonerValue,filterValues})
+    }
+
     if(!prisonerValue || !filterValues.length) return false
 
 
     const matchesFilter = checkFilterValues(filterValues, prisonerValue)
 
-    if(matchesFilter)
     if(!matchesFilter) recordFilterFailed = true
   })
 
