@@ -34,6 +34,8 @@
                 </video>
             </div>
         </div>
+
+
         <div class="content">
             <div class="text">
                 <h1 class="h1 naacp-title">
@@ -57,10 +59,15 @@
                     </div>
                 </h1>
             </div>
+            <div id="app-gallery"></div>
         </div>
     </div>
 </header>
+
+
+
 <main id="homeMain">
+
     <section id="posts-list-cnt">
         <!-- Limit the range to 3 latest posts -->
         {{ $pages := first 3 (where .Site.RegularPages "Section" "news" ) }}

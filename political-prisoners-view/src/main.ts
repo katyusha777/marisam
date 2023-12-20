@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import AppStats from './AppStats.vue'
+import AppGallery from './AppGallery.vue'
 import Vue3autocounter from 'vue3-autocounter';
 
 import Antd from 'ant-design-vue';
@@ -10,7 +11,9 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 const app = createApp(App).use(Antd)
+const appGallery = createApp(AppGallery).use(Antd)
 const appStats = createApp(AppStats).use(Antd).component('vue3-autocounter', Vue3autocounter)
 
 app.mount('#app')
 appStats.mount('#app-stats')
+appGallery.mount('#app-gallery')

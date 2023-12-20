@@ -103,7 +103,11 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 1;
+}
+
+.hero[data-hero-type=home] .h1 .highlight>span:after {
+    display:none
 }
 
 #heroHome {

@@ -17,7 +17,6 @@ export const caseCardFields: CaseCardFields[] = [
     { title: 'Convicted', fieldKey: "Convicted" },
     { title: 'Sentenced', fieldKey: "Sentenced Date" },
     { title: 'Released', fieldKey: "Release Date" },
-    { separator: true, fieldKey: 'Release Date' },
     { title: 'Charges', fieldKey: "Charges", asTags: true },
     { title: 'Prosecutor', fieldKey: "Prosecutor" },
     { title: 'Judge', fieldKey: "Judge" },

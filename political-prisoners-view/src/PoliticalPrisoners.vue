@@ -101,8 +101,9 @@ const checkPrisonerFilter = (prisoner: PrisonerRecord): boolean => {
   if(nameSearch.value) {
     const nameSearchLower = nameSearch.value.toLowerCase();
     const prisonerNameLower = prisoner.name.toLowerCase();
+    const prisonerAKALower = prisoner.AKA?.toLowerCase();
 
-    if (!prisonerNameLower.includes(nameSearchLower)) {
+    if (!prisonerNameLower.includes(nameSearchLower) && !prisonerAKALower?.includes(nameSearchLower)) {
       return false;
     }
   }
