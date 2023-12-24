@@ -215,6 +215,10 @@ html {
     margin: 0 2rem;
 }
 
+#posts-categories-filter a:hover {
+color:var(--secondary-color) !important;
+}
+
 #posts-list-cnt {
     display: grid;
     gap: 16px;

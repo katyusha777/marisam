@@ -5,12 +5,12 @@ import useAirtable from "@/composables/useAirtable";
 const { records, fetchRecords } = useAirtable();
 await fetchRecords();
 
-const displayedRecords = ref(records.value.slice(0, 40));
+const displayedRecords = ref(records.value.slice(0, 50));
 const carouselRef = ref<HTMLElement | null>(null);
 
 // Recalculate displayedRecords when records updates
 watch(records, () => {
-  displayedRecords.value = records.value.slice(0, 40);
+  displayedRecords.value = records.value.slice(0, 50);
 });
 
 onMounted(() => {
@@ -26,7 +26,7 @@ onMounted(() => {
   <div class="carousel overflow-hidden relative w-full py-12" ref="carouselRef">
     <div class="carousel-track">
       <div
-          class="carousel-slide inline-block md:w-1/5 w-1/3 h-64 bg-cover bg-center rounded-lg mx-2 relative"
+          class="carousel-slide inline-block w-36 h-56 bg-cover bg-center rounded-lg mx-2 relative"
           v-for="(prisoner, index) in displayedRecords"
           :key="index"
           :style="{ backgroundImage: `url(${prisoner.Photo})` }"
