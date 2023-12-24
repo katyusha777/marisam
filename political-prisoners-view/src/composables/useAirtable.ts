@@ -23,6 +23,7 @@ export default function useAirtable() {
         individualsNotReleased: 0,
         individualsInExile: 0,
         individualsImprisonedOrExiled: 0,
+        individualsImprisoned: 0,
         accumulatedDaysImprisoned: 0,
         accumulatedDaysInExile: 0,
     }
@@ -93,6 +94,7 @@ export default function useAirtable() {
 
             // Sums
             if(prisoner['In Exile']) sumCounts.individualsInExile++
+            if(prisoner['In Custody']) sumCounts.individualsImprisoned++
             if(prisoner['Imprisoned or Exiled'] === 'T') sumCounts.individualsImprisonedOrExiled++
             if(prisoner.imprisonedFor) sumCounts.accumulatedDaysImprisoned += prisoner.imprisonedFor
             if(prisoner.inExileFor) sumCounts.accumulatedDaysInExile += prisoner.inExileFor

@@ -33,7 +33,6 @@ onMounted(() => {
       >
         <div class="meta absolute left-0 right-0 bottom-0 pl-2 pr-2">
           <h2>{{prisoner.name}}</h2>
-          <h4><span v-html="prisoner.calculatedPunishment"></span></h4>
         </div>
       </div>
     </div>

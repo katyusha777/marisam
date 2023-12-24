@@ -80,8 +80,8 @@ const sumElementsSmallNumbers: Array<IDisplayElement> = [
     info: 'The count of individuals in exile underscores the harsh realities faced by those who challenge systemic powers. Their exile is a stark reminder of the sacrifices made in the pursuit of social and political change.'
   },
   {
-    key: 'individualsImprisonedOrExiled',
-    label: 'Imprisoned or In Exile',
+    key: 'individualsImprisoned',
+    label: 'Individuals Imprisoned',
     info: 'This figure represents a broader narrative of political resistance, encompassing those who face incarceration and exile. Their stories are emblematic of a larger struggle for justice and the ongoing fight against systemic oppression.'
   }
     ]
