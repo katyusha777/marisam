@@ -26,7 +26,7 @@ onMounted(() => {
   <div class="carousel overflow-hidden relative w-full py-12" ref="carouselRef">
     <div class="carousel-track">
       <div
-          class="carousel-slide inline-block w-1/5 h-64 bg-cover bg-center rounded-lg mx-2 relative"
+          class="carousel-slide inline-block md:w-1/5 w-1/3 h-64 bg-cover bg-center rounded-lg mx-2 relative"
           v-for="(prisoner, index) in displayedRecords"
           :key="index"
           :style="{ backgroundImage: `url(${prisoner.Photo})` }"
