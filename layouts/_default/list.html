@@ -60,10 +60,32 @@
         </div>
     </div>
 </header>
+
+
+
+
 <main id="maincontent">
+
+
+    {{ $allCategories := slice }}
+    {{ range .Site.RegularPages }}
+    {{ with .Params.category }}
+    {{ $allCategories = $allCategories | append . }}
+    {{ end }}
+    {{ end }}
+    {{ $uniqueCategories := uniq $allCategories }}
+    <div id="posts-categories-filter">
+        <div class="flex justify-center">
+            <div><a class="text-white" href="#Latest" onclick="filterPosts('')">Latest</a></div>
+            {{ range $uniqueCategories }}
+            <div><a class="text-white" href="#{{ . | urlize }}" onclick="filterPosts('{{ . | urlize }}')">{{ . }}</a></div>
+            {{ end }}
+        </div>
+    </div>
+
     <section id="posts-list-cnt">
         {{ range (.Paginate .RegularPagesRecursive).Pages }}
-        <article class="list-item">
+        <article class="list-item {{ .Params.category | urlize }}">
             <a href="{{ .Permalink }}" class="js-link-event-link">
                 <div class="line"></div>
                 {{ with .Params.category }}
@@ -76,6 +98,20 @@
         </article>
         {{ end }}
     </section>
+
+    <script>
+        function filterPosts(category) {
+            var articles = document.querySelectorAll('.list-item');
+            articles.forEach(function(article) {
+                if (category === '' || article.classList.contains(category)) {
+                    article.style.display = '';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </main>
 </div>
 {{ end }}

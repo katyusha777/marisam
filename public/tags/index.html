@@ -409,10 +409,110 @@
         </div>
     </div>
 </header>
+
+
+
+
 <main id="maincontent">
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="posts-categories-filter">
+        <div class="flex justify-center">
+            <div><a class="text-white" href="#Latest" onclick="filterPosts('')">Latest</a></div>
+            
+            <div><a class="text-white" href="#publication" onclick="filterPosts('publication')">Publication</a></div>
+            
+            <div><a class="text-white" href="#report" onclick="filterPosts('report')">Report</a></div>
+            
+            <div><a class="text-white" href="#policy-brief" onclick="filterPosts('policy-brief')">Policy Brief</a></div>
+            
+        </div>
+    </div>
+
     <section id="posts-list-cnt">
         
     </section>
+
+    <script>
+        function filterPosts(category) {
+            var articles = document.querySelectorAll('.list-item');
+            articles.forEach(function(article) {
+                if (category === '' || article.classList.contains(category)) {
+                    article.style.display = '';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </main>
 </div>
 

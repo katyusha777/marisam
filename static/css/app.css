@@ -201,6 +201,20 @@ html {
     width: 50px;
 }
 
+
+#posts-categories-filter {
+    max-width: 100%;
+    width: 980px;
+    margin: 3rem auto 4rem;
+}
+
+#posts-categories-filter a {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 2rem;
+}
+
 #posts-list-cnt {
     display: grid;
     gap: 16px;
