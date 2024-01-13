@@ -19,6 +19,7 @@ export interface Prisoner {
     Website?: any
     Facebook?: any
     Affiliation: any
+    Year?: number
     imprisonedFor: number
     calculatedPunishment: string
     inExileFor: number

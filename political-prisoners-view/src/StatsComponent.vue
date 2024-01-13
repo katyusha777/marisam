@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { DoughnutChart } from 'vue-chart-3';
 import useAirtable from "@/composables/useAirtable";
+import BarGraphComponent from "@/BarGraphComponent.vue";
 
 const { records, fetchRecords, aggregateCounts, sumCounts } = useAirtable();
 const chartDataEra = ref({});
@@ -103,6 +104,8 @@ const sumElements: Array<IDisplayElement> = [
 
 <template>
   <section id="stats-component">
+
+    <BarGraphComponent/>
 
     <div class="" id="counters">
       <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-for="element in sumElements">

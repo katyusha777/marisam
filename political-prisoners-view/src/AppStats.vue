@@ -11,8 +11,10 @@ import { Options, Vue } from 'vue-class-component';
 import './index.css'
 import './assets/fontawesome/css/all.min.css'
 import StatsComponent from "@/StatsComponent.vue";
+import BarGraphComponent from "@/BarGraphComponent.vue";
 @Options({
   components: {
+    BarGraphComponent,
     StatsComponent,
   },
 })

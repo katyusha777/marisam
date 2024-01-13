@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'vue/valid-v-for': 'off',
     'vue/no-setup-props-destructure': 'off',
     'vue/require-v-for-key': 'off',
