@@ -18,35 +18,45 @@ const data: Record<TDataKeys, TDataValue> = {
 
 const chartOptions = (title: string, eras: Array<number>) => {
   return {
-    chart: { type: 'bar', height: 350, stacked: true},
+    theme: {mode: 'dark',palette: 'palette10'},
+    chart: { type: 'bar', height: 350, stacked: true, background: '#000'},
+    tooltip: {theme: 'dark'},
     plotOptions: {
-      bar: { horizontal: true, dataLabels: { total: { enabled: true, offsetX: 0, style: { fontSize: '13px', fontWeight: 900} } } }, },
+      bar: { horizontal: false, dataLabels: { total: { enabled: true, offsetX: 0, style: { fontSize: '13px', fontWeight: 900} } } }, },
     title: {text: `...${title}`},
     xaxis: {categories: eras, },
-    yaxis: {labels: { formatter: function (val: any) { return val + "'s" } }},
+    yaxis: {labels: { formatter: function (val: any) { return val + "" } }},
     legend: { position: 'top', horizontalAlign: 'left', offsetX: 40}
   }
 }
 
-const setDataValue = (key: TDataKeys, value: string, era: number) => {
+const setDataValue = (key: TDataKeys, value: string, years: Array<number>) => {
   if(!value) return false
   if(typeof data[key][value] === 'undefined') data[key][value] = {}
-  if(typeof data[key][value][era] === 'undefined') data[key][value][era] = 0
-  data[key][value][era]++
+  years.forEach((year: number) => {
+    if(typeof data[key][value][year] === 'undefined') data[key][value][year] = 0
+    data[key][value][year]++
+  })
 }
 
 records.value.forEach((record: PrisonerRecord) => {
-  const era = record.Era
+  const yearsInPrison = record['Years Spent In Prison']
   const race = record.Race
   const gender = record.Gender
   const affiliation = record.Affiliation
   const ideology = record.Ideologies ? record.Ideologies[0] : null
 
-  if(!era) return false
-  setDataValue('race', race, era)
-  setDataValue('gender', gender, era)
-  setDataValue('affiliation', affiliation, era)
-  if(ideology) setDataValue('ideology', ideology, era)
+  if(!yearsInPrison) return
+  const years: Array<number> = []
+  yearsInPrison.forEach((year: string) => {
+    years.push(parseInt(year))
+  })
+
+  if(!years) return false
+  setDataValue('race', race, years)
+  setDataValue('gender', gender, years)
+  setDataValue('affiliation', affiliation, years)
+  if(ideology) setDataValue('ideology', ideology, years)
 })
 
 
@@ -90,7 +100,7 @@ const gender = parseDataForChart('gender', 'Gender')
 const ideology = parseDataForChart('ideology', 'Ideology')
 const affiliation = parseDataForChart('affiliation', 'Affiliation')
 
-const barCntClasses = 'bg-white rounded p-2 mb-8 w-11/12 mx-auto'
+const barCntClasses = 'mb-8 w-11/12 mx-auto'
 </script>
 
 <template>
@@ -102,7 +112,7 @@ const barCntClasses = 'bg-white rounded p-2 mb-8 w-11/12 mx-auto'
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
-">Prisoners segmented by era and...</h2>
+"># of Political Prisoners by Year, grouped by...</h2>
 
   <div :class="barCntClasses"><apexchart type="bar" height="350" :options="race.options" :series="race.series"></apexchart></div>
   <div :class="barCntClasses"><apexchart type="bar" height="350" :options="gender.options" :series="gender.series"></apexchart></div>

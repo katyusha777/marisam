@@ -19,6 +19,7 @@ export interface Prisoner {
     Website?: any
     Facebook?: any
     Affiliation: any
+    'Years Spent In Prison': Array<string>
     Year?: number
     imprisonedFor: number
     calculatedPunishment: string
