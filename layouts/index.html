@@ -66,8 +66,23 @@
 
 
 <main id="homeMain">
-
+    {{ $allCategories := slice }}
+    {{ range .Site.RegularPages }}
+    {{ with .Params.category }}
+    {{ $allCategories = $allCategories | append . }}
+    {{ end }}
+    {{ end }}
+    {{ $uniqueCategories := uniq $allCategories }}
+    <div id="posts-categories-filter">
+        <div class="flex justify-center">
+            <div><a class="text-white" href="#Latest" onclick="filterPosts('')">Latest</a></div>
+            {{ range $uniqueCategories }}
+            <div><a class="text-white" href="/news/#{{ . | urlize }}">{{ . }}</a></div>
+            {{ end }}
+        </div>
+    </div>
     <section id="posts-list-cnt">
+
         <!-- Limit the range to 3 latest posts -->
         {{ $pages := first 3 (where .Site.RegularPages "Section" "news" ) }}
         {{ range $pages }}

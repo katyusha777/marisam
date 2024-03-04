@@ -541,6 +541,14 @@
                 }
             });
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var hashValue = window.location.hash.replace('#', '');
+            if (hashValue) {
+                filterPosts(hashValue);
+            }
+        });
+
     </script>
 
 </main>
