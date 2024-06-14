@@ -206,6 +206,7 @@ html {
     max-width: 100%;
     width: 980px;
     margin: 3rem auto 4rem;
+    overflow:hidden;
 }
 
 #posts-categories-filter a {

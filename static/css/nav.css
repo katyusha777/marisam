@@ -963,6 +963,14 @@
     color: #FFF !important;
 }
 
+#nav-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10000000;
+    max-width:100vw;
+}
 
 .site-header-top-bar {
     position: relative;
@@ -970,6 +978,7 @@
     left: 0;
     right: 0;
     z-index: 10000;
+    padding: 0 0.5rem;
 }
 
 .site-header-top-bar {
@@ -979,17 +988,12 @@
 header.globalNav {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: sticky;
-    left: 0;
-    top: 0px;
-    right: 0;
     z-index: 500;
     height: 50px;
-    background: transparent;
+    background: rgb(0 0 0 / 83%);
     padding: 0.9rem 0;
     height: 80px;
     backdrop-filter: brightness(120%) contrast(100%) saturate(100%) blur(15px) hue-rotate(0deg);
-    z-index: 1000000000000;
 }
 
 header.globalNav ul {
@@ -1670,48 +1674,27 @@ header.globalNav .navSection.mobile .rootLink h2:after {
 }
 
 header.globalNav .popup {
-    position: absolute;
-    left: 10px;
-    top: 5px;
-    right: 10px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display:none;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
     pointer-events: none;
-    -webkit-perspective: 2000px;
-    perspective: 2000px;
+    max-width: 100vw;
+    z-index: 100000000000;
 }
 
 header.globalNav .popupContainer {
     background: #fff;
     box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
-    border-radius: 4px;
     overflow: hidden;
     position: relative;
     font-size: 17px;
     line-height: 40px;
-    white-space: nowrap;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-transform: rotate3d(1, 1, 0, -15deg);
-    transform: rotate3d(1, 1, 0, -15deg);
-    -webkit-transform-origin: 100% 0;
-    transform-origin: 100% 0;
-    opacity: 0;
-    will-change: transform, opacity;
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
-    transition-property: transform, opacity;
-    transition-property: transform, opacity, -webkit-transform;
-    -webkit-transition-duration: 0.25s;
-    transition-duration: 0.25s;
 }
 
 header.globalNav .navSection.mobile.globalPopupActive .popupContainer {
