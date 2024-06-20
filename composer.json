@@ -7,15 +7,19 @@
     "require": {
         "php": "^8.3",
         "guzzlehttp/guzzle": "^7.2",
+        "jangvel/nova-gutenberg": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/nova": "^4.27",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.5"
+        "naoray/nova-json": "^3.0",
+        "spatie/laravel-data": "^4.1",
+        "whitecube/nova-flexible-content": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.49",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
@@ -41,6 +45,7 @@
         }
     },
     "scripts": {
+
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -66,7 +71,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "symfony/thanks": false
         }
     },
     "minimum-stability": "stable",
