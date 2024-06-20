@@ -16,6 +16,6 @@ const app = createApp(App).use(Antd)
 const appGallery = createApp(AppGallery).use(Antd)
 const appStats = createApp(AppStats).use(Antd).component('vue3-autocounter', Vue3autocounter).use(VueApexCharts);
 
-app.mount('#app')
+// app.mount('#app')
 appStats.mount('#app-stats')
-appGallery.mount('#app-gallery')
+// appGallery.mount('#app-gallery')
