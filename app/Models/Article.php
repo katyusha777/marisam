@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 final class Article extends Model {
     use HasSlug;
 
-    protected $appends = ['url'];
+    protected $appends = ['url', 'image_url'];
 
     public static function getBySlug(string $slug): self {
         return self::where('slug', $slug)->first();
@@ -39,6 +39,6 @@ final class Article extends Model {
     }
 
     public function getUrlAttribute(): string {
-        return '/articles/'.$this->slug;
+        return '/news/'.$this->slug;
     }
 }

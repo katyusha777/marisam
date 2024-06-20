@@ -1,16 +1,18 @@
-@php use Illuminate\Support\Facades\Storage; @endphp
-@extends('theme')
+@php use App\Models\Page; @endphp
+@php
+    /**
+     * @var Page $page
+     */
+@endphp
+@extends('app')
 
-@section('content')
-    @if(!$page->is_frontpage)
-        <div class="bg-white px-6 py-12 lg:px-8">
-            <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-                @if($page->header_image && strlen($page->header_image) > 10) <div class="mb-12"><img class="aspect-[2/1] w-full mb-4 flex-none rounded-2xl object-cover" src="{{Storage::url($page->header_image)}}" alt=""></div> @endif
-                <h1 class="mt-2 mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{$page->title}}</h1>
-                {!! $page->render() !!}
-            </div>
-        </div>
-    @endif
-
-    {!! $blocks !!}
+@section('body')
+    <div class="line mt-8"></div>
+    <h1 class="text-6xl mt-12">{{$page->title}}</h1>
+    <div class=" h-[420px] rounded-lg mt-12 mb-6 overflow-hidden  justify-center items-center bg-center bg-cover"
+         style="background-image: url('{{ $page->image_url }}')">
+    </div>
+    <article class="mt-12">
+        @markdom($page->body)
+    </article>
 @endsection

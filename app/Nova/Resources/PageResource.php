@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Nova\Resources\SiteResources;
+namespace App\Nova\Resources;
 
-use App\Blocks\Blocks;
 use App\Models\Page as PageModel;
-use Jangvel\NovaGutenberg\NovaGutenberg;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
@@ -22,13 +19,9 @@ final class PageResource extends Resource {
         return [
             ID::make()->sortable(),
             Text::make('Title'),
-            Text::make('Slug'),
             BelongsTo::make('Parent', 'parent', self::class)->nullable(),
             Image::make('Header image'),
-            NovaGutenberg::make('Body'),
-            Boolean::make('Is Frontpage', 'is_frontpage'),
-            Boolean::make('Is Main CTA Page', 'is_cta_page'),
-            Blocks::renderNovaBlocksFlexible(),
+            Markdown::make('Body'),
         ];
     }
 }

@@ -13,13 +13,8 @@ return new class() extends Migration {
             $table->string('slug')->unique();
             $table->text('body');
             $table->uuid('parent_id')->nullable();
-            $table->uuid('site_id');
             $table->json('blocks')->nullable();
-            $table->boolean('is_frontpage')->default(false);
-            $table->boolean('is_cta_page')->default(false);
             $table->timestamps();
-
-            $table->foreign('parent_id')->references('id')->on('pages')->onDelete('set null');
         });
     }
 

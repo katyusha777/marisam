@@ -1,0 +1,124 @@
+
+/* Typography Styles */
+
+body {
+    font-family: 'Verlag', sans-serif;
+    font-weight: normal;
+    line-height: 1.6;
+    color: #FFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Verlag', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    color: #FFF;
+    font-weight: lighter;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    font-family: 'Verlag', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+strong {
+    font-weight: 900;
+}
+
+em {
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('verlag-black-webfont.woff2') format('woff2'),
+    url('verlag-black-webfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('verlag-light-webfont.woff2') format('woff2'),
+    url('verlag-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('verlag-xlight-webfont.woff2') format('woff2'),
+    url('verlag-xlight-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('verlag-book-webfont.woff2') format('woff2'),
+    url('verlag-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Verlag Condensed';
+    src: url('verlagcompressed-bold-webfont.woff2') format('woff2'),
+    url('verlagcompressed-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag Condensed';
+    src: url('verlagcondensed-book-webfont.woff2') format('woff2'),
+    url('verlagcondensed-book-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag Condensed';
+    src: url('verlagcondensed-light-webfont.woff2') format('woff2'),
+    url('verlagcondensed-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag Condensed';
+    src: url('verlagcondensed-xlight-webfont.woff2') format('woff2'),
+    url('verlagcondensed-xlight-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}

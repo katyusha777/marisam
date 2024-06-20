@@ -2,33 +2,37 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use VanOns\Laraberg\Traits\RendersContent;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property string  $title
  * @property string  $slug
  * @property string  $body
  * @property string  $header_image
- * @property bool    $is_cta_page
+ * @property string  $image_url
  * @property ?string $parent_id
  * @property string  $url
  * @property object  $blocks
- * @property bool    $is_frontpage
  * @property Page[]  $children
  */
 final class Page extends Model {
-    use RendersContent;
+    use HasSlug;
     protected $contentColumn = 'body';
 
-    protected $appends = ['url'];
+    protected $appends = ['url', 'image_url'];
     protected $casts   = [
         'blocks' => 'json',
     ];
 
-    public static function getBySlug(string $slug): self {
+    public static function getBySlug(string $slug): ?self {
         return self::where('slug', $slug)->first();
+    }
+
+    public function getImageUrlAttribute(): string {
+        return Storage::url($this->header_image);
     }
 
     public function parent(): BelongsTo {

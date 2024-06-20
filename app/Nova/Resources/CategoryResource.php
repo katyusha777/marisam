@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\Resources\SiteResources;
+namespace App\Nova\Resources;
 
 use App\Models\Category as CategoryModel;
 use Laravel\Nova\Fields\HasMany;
