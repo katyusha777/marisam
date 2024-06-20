@@ -23,20 +23,43 @@ const data: Record<TDataKeys, TDataValue> = {
   ideology: {},
   affiliation: {}
 }
-
 const chartOptions = (title: string, eras: Array<number>) => {
   return {
-    theme: {mode: 'dark',palette: 'palette10'},
-    chart: { type: 'bar', height: 350, stacked: true, background: '#000'},
-    tooltip: {theme: 'dark'},
+    theme: { mode: 'dark', palette: 'palette10' },
+    chart: { type: 'bar', height: 1400, stacked: true, background: '#000', stackType: '100%' },
+    stroke: {
+      show: false,
+      width: 0,
+      colors: ['#000']
+    },
+    tooltip: { theme: 'dark' },
     plotOptions: {
-      bar: { horizontal: true, dataLabels: { total: { enabled: true, offsetX: 0, style: { fontSize: '13px', fontWeight: 900} } } }, },
-    title: {text: `...${title}`},
-    xaxis: {categories: eras, },
-    yaxis: {labels: { formatter: function (val: any) { return val + "" } }},
-    legend: { position: 'top', horizontalAlign: 'left', offsetX: 40}
+      bar: {
+        horizontal: true,
+        dataLabels: {
+          total: {
+            enabled: true,
+            offsetX: 0,
+            style: { fontSize: '13px', fontWeight: 900 }
+          }
+        }
+      }
+    },
+    title: { text: `...${title}` },
+    xaxis: { categories: eras },
+    yaxis: {
+      labels: {
+        formatter: function (val: any) { return val + "" }
+      }
+    },
+    legend: { position: 'top', horizontalAlign: 'left', offsetX: 10 },
+    datasets: [{
+      borderWidth: 0,
+      borderColor: 'transparent',
+    }]
   }
 }
+
 
 const setDataValue = (key: TDataKeys, value: string, years: Array<number>) => {
   if(!value) return false
