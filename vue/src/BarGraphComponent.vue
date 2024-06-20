@@ -1,12 +1,21 @@
 <script lang="ts" setup>
 import useAirtable from "@/composables/useAirtable";
 import {PrisonerRecord} from "@/types";
+import {ref} from "vue";
 
 const { records, fetchRecords } = useAirtable();
 await fetchRecords();
 
+
+
+
 type TDataValue = Record<string, Record<number, number>>
 type TDataKeys = 'race' | 'gender' | 'ideology' | 'affiliation'
+
+interface ITabITem {
+  title: string
+  key: TDataKeys
+}
 
 const data: Record<TDataKeys, TDataValue> = {
   race: {},
@@ -15,14 +24,13 @@ const data: Record<TDataKeys, TDataValue> = {
   affiliation: {}
 }
 
-
 const chartOptions = (title: string, eras: Array<number>) => {
   return {
     theme: {mode: 'dark',palette: 'palette10'},
     chart: { type: 'bar', height: 350, stacked: true, background: '#000'},
     tooltip: {theme: 'dark'},
     plotOptions: {
-      bar: { horizontal: false, dataLabels: { total: { enabled: true, offsetX: 0, style: { fontSize: '13px', fontWeight: 900} } } }, },
+      bar: { horizontal: true, dataLabels: { total: { enabled: true, offsetX: 0, style: { fontSize: '13px', fontWeight: 900} } } }, },
     title: {text: `...${title}`},
     xaxis: {categories: eras, },
     yaxis: {labels: { formatter: function (val: any) { return val + "" } }},
@@ -101,6 +109,16 @@ const ideology = parseDataForChart('ideology', 'Ideology')
 const affiliation = parseDataForChart('affiliation', 'Affiliation')
 
 const barCntClasses = 'mb-8 w-11/12 mx-auto'
+
+const height = ref(1400)
+
+const tabItems: Array<ITabITem> = [
+  {title: 'Race', key: 'race'},
+  {title: 'Gender', key: 'gender'},
+  {title: 'Ideology', key: 'ideology'},
+  {title: 'Affiliation', key: 'affiliation'},
+]
+
 </script>
 
 <template>
@@ -112,12 +130,22 @@ const barCntClasses = 'mb-8 w-11/12 mx-auto'
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
+    max-width:980px;
+    margin-left:auto;
+    margin-right:auto;
 "># of Political Prisoners by Year, grouped by...</h2>
 
-  <div :class="barCntClasses"><apexchart type="bar" height="350" :options="race.options" :series="race.series"></apexchart></div>
-  <div :class="barCntClasses"><apexchart type="bar" height="350" :options="gender.options" :series="gender.series"></apexchart></div>
-  <div :class="barCntClasses"><apexchart type="bar" height="350" :options="ideology.options" :series="ideology.series"></apexchart></div>
-  <div :class="barCntClasses"><apexchart type="bar" height="350" :options="affiliation.options" :series="affiliation.series"></apexchart></div>
+
+  <div>
+    <template v-for="item in tabItems" :key="item.title">
+      <div @click="() =>console.log(item.key)">{{item.title}}</div>
+    </template>
+  </div>
+
+  <div :class="barCntClasses"><apexchart type="bar" :height="height" :options="race.options" :series="race.series"></apexchart></div>
+<!--  <div :class="barCntClasses"><apexchart type="bar" :height="height" :options="gender.options" :series="gender.series"></apexchart></div>-->
+<!--  <div :class="barCntClasses"><apexchart type="bar" :height="height" :options="ideology.options" :series="ideology.series"></apexchart></div>-->
+<!--  <div :class="barCntClasses"><apexchart type="bar" :height="height" :options="affiliation.options" :series="affiliation.series"></apexchart></div>-->
 
 </div>
 </template>
