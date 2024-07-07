@@ -2,7 +2,8 @@
 @php
     $menuItems = ViewSupport::getMenuItems();
 @endphp
-<section class="hidden md:block">
+<div class="hidden md:block" id="nav-spacing"></div>
+<section class="hidden md:block" id="desktop-nav">
     <div class="bg-black  flex justify-between uppercase text-white">
         <div class="py-2 px-4">
             <a href="/" class="mr-4">NPPC</a>

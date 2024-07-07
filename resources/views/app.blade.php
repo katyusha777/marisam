@@ -16,6 +16,7 @@ $isHome = request()->segment(1) == ''
     <link href="/fonts/flood-std.css" rel="stylesheet"/>
     <link href="/style/nav.css" rel="stylesheet"/>
     <link href="/style/basics.css" rel="stylesheet"/>
+    <link href="/style/scss/app.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
     @livewireStyles
 

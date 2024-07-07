@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { DoughnutChart } from 'vue-chart-3';
 import useAirtable from "@/composables/useAirtable";
 import BarGraphComponent from "@/BarGraphComponent.vue";
 
 const { records, fetchRecords, aggregateCounts, sumCounts } = useAirtable();
-const chartDataEra = ref({});
-const chartDataGender = ref({});
-const chartDataRace = ref({});
+const chartDataEra = ref({})
+const chartDataGender = ref({})
+const chartDataRace = ref({})
 const dataColors = [
-  '#825af9',   // Original color
-  '#35d9c3',   // Original color
-  '#4375ff',   // Original color
-  '#6d3dbf',   // Darker and vivid shade of #825af9
-  '#2cb1a1',   // Darker and vivid shade of #35d9c3
-  '#3658d4'    // Darker and vivid shade of #4375ff
+  '#825af9',
+  '#35d9c3',
+  '#4375ff',
+  '#6d3dbf',
+  '#2cb1a1',
+  '#3658d4'
 ]
 
 const chartOptions = ref({
@@ -50,13 +50,13 @@ const renderAggregateCounts = (key: string): string => {
     const color = dataColors[index % dataColors.length];
     return `<span class="font-bold" style="color: ${color};">${count} ${label}s</span>`;
   }).join(', ');
-};
+}
 
 // This will return a string with each count and label wrapped in a span with the corresponding color.
-await fetchRecords();
-chartDataEra.value = prepareChartData('Era');
-chartDataGender.value = prepareChartData('Gender');
-chartDataRace.value = prepareChartData('Race');
+await fetchRecords()
+chartDataEra.value = prepareChartData('Era')
+chartDataGender.value = prepareChartData('Gender')
+chartDataRace.value = prepareChartData('Race')
 
 
 interface IDisplayElement {

@@ -1,0 +1,74 @@
+#app-quotes {
+
+  /*! CSS Used from: https://nationalpoliticalprisonercoalition.org/naacp/naacp3.css */
+  img{border-style:none;}
+  *,:after,:before{box-sizing:border-box;}
+  img{display:block;max-width:100%;height:auto;}
+  p{margin:0 0 30px;font-size:18px;font-size:1.125rem;line-height:1.3888888889;letter-spacing:.03125rem;}
+  @media (min-width:768px){
+    p{font-size:21px;font-size:1.3125rem;line-height:1.2857142857;}
+  }
+  .testimonial{grid-column:main;margin-bottom:max(80px, min(16vw, 120px));position:relative;padding:5px 40px 80px;border-radius:5px;}
+  @media (min-width:900px){
+    .testimonial{background-color:var(--primary-color);overflow:hidden;padding:40px 50px;}
+  }
+  .testimonial .inner{position:relative;z-index:2;text-align:center;}
+  @media (min-width:900px){
+    .testimonial .inner{display:flex;align-items:center;text-align:left;}
+  }
+  .testimonial .photo{position:relative;width:185px;margin:0 auto;border-radius:50%;}
+  @media (min-width:900px){
+    .testimonial .photo{width:250px;flex:0 0 250px;margin:0;}
+  }
+  .testimonial .photo:after{content:"";display:block;position:absolute;z-index:2;bottom:0;width:185px;height:100%;border-radius:50%;opacity:.5;background-image:linear-gradient(0deg, #000, transparent 50%);}
+  @media (min-width:900px){
+    .testimonial .photo:after{width:250px;}
+  }
+  .testimonial .text{position:relative;max-width:600px;margin:0 auto;}
+  @media (min-width:900px){
+    .testimonial .text{flex:1 1 auto;margin:0 auto 0 0;padding-left:50px;max-width:980px;}
+  }
+  .testimonial .text p{font-size:25px;font-size:1.5625rem;font-weight:900;line-height:1.1666666667;color:#fff;}
+  @media (min-width:900px){
+    .testimonial .text p{font-size:max(1.5rem, min(2.6vw, 1.875rem));}
+  }
+  .testimonial .text cite{font-family:flood-std, sans-serif;font-size:25px;font-size:1.5625rem;font-style:normal;color:#fff;}
+  .testimonial .text:before{content:"";display:inline-block;font-family:icomoon!important;font-style:normal;font-weight:400;font-variant:normal;line-height:1;text-transform:none;speak:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;z-index:2;margin:-25px auto 25px;font-size:45px;font-size:2.8125rem;color:#fff;text-shadow:-8px 2px 0 var(--secondary-color);}
+  @media (min-width:900px){
+    .testimonial .text:before{position:absolute;top:-14px;left:-22px;margin:0;font-size:55px;font-size:3.4375rem;}
+  }
+  /*! CSS Used from: https://nationalpoliticalprisonercoalition.org/css/app.css */
+  .testimonial{max-width:1024px;margin:auto;}
+  .testimonial .text cite{font-family:"Verlag"!important;padding-top:12px!important;font-size:16px!important;display:block;}
+  .testimonial{background-color:#000;}
+  .testimonial .text{max-width:unset;}
+  @media only screen and (max-width: 768px){
+    .testimonial .text cite{font-size:15px;}
+    .testimonial .text p{font-size:25px;font-size:18px;text-align:left;font-weight:normal;}
+  }
+  /*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css */
+  *,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box;}
+  :after,:before{--tw-content:"";}
+  p{margin:0;}
+  :disabled{cursor:default;}
+  img{display:block;vertical-align:middle;}
+  img{height:auto;max-width:100%;}
+  *,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-scroll-snap-strictness:proximity;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(63,131,248,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;}
+  /*! CSS Used from: https://nationalpoliticalprisonercoalition.org/vue/app.css */
+  *,:after,:before{border-width:0;border-style:solid;border-color:#e5e7eb;}
+  :after,:before{--tw-content:"";}
+  p{margin:0;}
+  :disabled{cursor:default;}
+  img{display:block;vertical-align:middle;}
+  img{max-width:100%;height:auto;}
+  *,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-scroll-snap-strictness:proximity;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;}
+  *,:after,:before{box-sizing:border-box;}
+  p{margin-top:0;margin-bottom:1em;}
+  img{vertical-align:middle;border-style:none;}
+  /*! CSS Used fontfaces */
+  @font-face{font-family:"flood-std";src:url("https://use.typekit.net/af/6da923/000000000000000000012fc3/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/6da923/000000000000000000012fc3/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/6da923/000000000000000000012fc3/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;}
+  @font-face{font-family:icomoon;src:url("data:application/x-font-ttf;charset=utf-8;base64,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") format("truetype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:'Verlag';src:url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag_bold-webfont.woff2') format('woff2'),         url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag_bold-webfont.woff') format('woff');font-weight:bold;font-style:normal;}
+  @font-face{font-family:'Verlag';src:url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-black-webfont.woff2') format('woff2'),         url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-black-webfont.woff') format('woff');font-weight:bolder;font-style:normal;}
+  @font-face{font-family:'Verlag';src:url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-book-webfont.woff2') format('woff2'),         url('https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-book-webfont.woff') format('woff');font-weight:normal;font-style:normal;}
+}
