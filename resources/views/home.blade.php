@@ -12,10 +12,10 @@
 
     <div class="container">
         <livewire:articles-grid :limit="5" />
-       @php /**  <div id="app-stats"></div> */ @endphp
+        <div id="app-stats"></div>
         @include('sections.quotes')
     </div>
 
-    @php /**  <div id="app-gallery"></div> */ @endphp
+    <div id="app-gallery"></div>
 
 @endsection

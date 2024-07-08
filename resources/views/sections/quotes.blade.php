@@ -4,7 +4,7 @@
         <article class="testimonial hidden" style="margin-bottom:0;border-radius:0; position: absolute; top: 0; left: 0; right: 0;">
             <div class="inner flex items-center">
                 <div class="photo">
-                    <img style="border-radius: 1000px;" src="/storage/{{ $quote->author_image }}" width="300" height="300" alt="Image alt text" loading="lazy">
+                    <img src="/storage/{{ $quote->author_image }}" width="300" height="300" alt="Image alt text" loading="lazy">
                 </div>
                 <div class="text ml-4">
                     <p>{{ $quote->text }}</p>

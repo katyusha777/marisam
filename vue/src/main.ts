@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import AppStatsContainer from './AppStatsContainer.vue'
-import AppGallery from './AppGallery.vue'
+import DatabaseApp from './components/database/DatabaseApp.vue'
+import VisualisationApp from './components/visualisation/VisualisationApp.vue'
+import GalleryApp from './components/gallery/GalleryApp.vue'
 import Vue3autocounter from 'vue3-autocounter';
 
 import Antd from 'ant-design-vue';
@@ -12,10 +12,10 @@ import VueApexCharts from "vue3-apexcharts";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-const app = createApp(App).use(Antd)
-const appGallery = createApp(AppGallery).use(Antd)
-const appStats = createApp(AppStatsContainer).use(Antd).component('vue3-autocounter', Vue3autocounter).use(VueApexCharts);
+const app = createApp(DatabaseApp).use(Antd)
+const appGallery = createApp(GalleryApp).use(Antd)
+const appStats = createApp(VisualisationApp).use(Antd).component('vue3-autocounter', Vue3autocounter).use(VueApexCharts);
 
-// app.mount('#app')
+app.mount('#app')
 appStats.mount('#app-stats')
-// appGallery.mount('#app-gallery')
+appGallery.mount('#app-gallery')

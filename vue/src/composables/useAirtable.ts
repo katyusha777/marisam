@@ -1,6 +1,6 @@
 import { Ref, ref, watchEffect } from 'vue';
 import axios from 'axios';
-import { Case, CaseFields, Institution, Prisoner, PrisonerFilters, PrisonerRecord } from "@/types";
+import { Case, CaseFields, Institution, Prisoner, PrisonerFilters, PrisonerRecord } from "@/@types/types";
 
 export default function useAirtable() {
     const filterFieldsObj: PrisonerFilters = {

@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-color-bg {
+    background-color:#5660fe;
+}
+.app-color-border {
+    border-color:#5660fe;
+}
+
+.app-color-border-light {
+    border-color:#cccfff;
+}
+
+
+:root {
+    --vis-axis-grid-color: #000 !important;
+    --vis-color0: #a300d6 !important;
+    --vis-color1: #7d02eb !important;
+    --vis-color2: #5653fe !important;
+    --vis-color3: #2983ff !important;
+    --vis-color4: #00b1f2 !important;
+    --vis-color5: #00a0e2 !important;
+    --vis-color6: #008fd2 !important;
+    --vis-color7: #007ec2 !important;
+    --vis-color8: #006db2 !important;
+    --vis-color9: #005ca2 !important;
+}
