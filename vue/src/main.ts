@@ -19,3 +19,4 @@ const appStats = createApp(VisualisationApp).use(Antd).component('vue3-autocount
 app.mount('#app')
 appStats.mount('#app-stats')
 appGallery.mount('#app-gallery')
+

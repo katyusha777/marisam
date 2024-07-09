@@ -2,15 +2,16 @@
 @php
     $menuItems = ViewSupport::getMenuItems();
 @endphp
+
 <div class="hidden md:block" id="nav-spacing"></div>
 <section class="hidden md:block" id="desktop-nav">
-    <div class="bg-black  flex justify-between uppercase text-white">
+    <div class="bg-black  flex justify-between uppercase text-white nav-topleft-buttons">
         <div class="py-2 px-4">
-            <a href="/" class="mr-4">NPPC</a>
-            <a href="/donate">Donate</a>
+            <a href="/" class="mr-4 text-sm font-bold @if(request()->path() === '/') active @endif">NPPC</a>
+            <a class="text-sm font-bold @if(request()->path() === 'donate') active @endif" href="/donate">Donate</a>
         </div>
         <div>
-            <a class="bg-indigo-700 block h-12 leading-10 px-8" href="/contact">Contact Us</a>
+            <a class="bg-indigo-700 block h-12 pt-1 leading-10 px-8 text-sm font-bold" href="/contact">Contact Us</a>
         </div>
     </div>
 

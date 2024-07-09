@@ -1,3 +1,17 @@
+:root {
+  --button-color: #5660fe;
+  --primary-color: #000;
+  --secondary-color: #5660fe;
+}
+
+.nav-topleft-buttons a:hover {
+  color: var(--secondary-color);
+}
+
+.nav-topleft-buttons a.active {
+  border-top: 5px solid var(--secondary-color);
+}
+
 #app-footer {
   /*! CSS Used from: https://nationalpoliticalprisonercoalition.org/naacp/naacp3.css */
   /*! CSS Used from: https://nationalpoliticalprisonercoalition.org/css/app.css */

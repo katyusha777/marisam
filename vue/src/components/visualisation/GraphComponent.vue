@@ -136,7 +136,7 @@ function setChartData(key: TDataKeys) {
 const height = 450
 
 function getIcon(f: any): string {
-  return `<span class="bi bi-${f.icon}" style="color:${f.color}; margin:0 4px"></span>${f.label}\t`
+  return `<span class="bi bi-${f.icon}" style="background:${f.color}; color:${f.color}; margin:0 4px"></span>${f.label}\t`
 }
 
 function tooltipTemplate(d: Record<string, number>): string {
@@ -149,7 +149,7 @@ function tooltipTemplate(d: Record<string, number>): string {
 </script>
 
 <template>
- <section class="bg-black">
+ <section class="bg-black" id="graph-component">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 
    <nav class="bg-black">
@@ -176,7 +176,8 @@ function tooltipTemplate(d: Record<string, number>): string {
      <VisStackedBar :barPadding="0.05"  :x="(d: any) => d.year" :y="labels.map((l: any) => (d: any) => d[l.format])" />
      <VisCrosshair :template="tooltipTemplate" />
      <VisTooltip :verticalShift="height" :horizontalPlacement="Position.Center" />
-     <VisAxis type="x" />
+     <VisAxis type="x" :numTicks="20" />
+     <VisAxis type='y' label='Total Political Prisoners' />
    </VisXYContainer>
  </section>
 </template>
@@ -185,5 +186,15 @@ function tooltipTemplate(d: Record<string, number>): string {
 <style lang="scss">
 tspan {
   fill: #FFF;
+}
+
+#graph-component {
+
+  svg {
+
+    text {
+      fill: #FFF;
+    }
+  }
 }
 </style>

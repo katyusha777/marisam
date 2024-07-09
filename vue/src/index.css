@@ -15,6 +15,11 @@
 
 
 :root {
+    --button-color: #5660fe;
+    --primary-color: #000;
+    --secondary-color: #5660fe;
+}
+:root {
     --vis-axis-grid-color: #000 !important;
     --vis-color0: #a300d6 !important;
     --vis-color1: #7d02eb !important;
@@ -26,4 +31,24 @@
     --vis-color7: #007ec2 !important;
     --vis-color8: #006db2 !important;
     --vis-color9: #005ca2 !important;
+    --vis-color10: #9444dd !important;
+    --vis-color11: #8046e1 !important;
+    --vis-color12: #6c4fe5 !important;
+    --vis-color13: #5768e9 !important;
+    --vis-color14: #438deb !important;
+    --vis-color15: #35a2ed !important;
+    --vis-color16: #2ca6d4 !important;
+    --vis-color17: #2e94c3 !important;
+    --vis-color18: #3078b2 !important;
+    --vis-color19: #336aa1 !important;
+    --vis-color20: #354d90 !important;
+    --vis-color21: #38317f !important;
+    --vis-color22: #3b176e !important;
+    --vis-color23: #3d055d !important;
+    --vis-color24: #4d004c !important;
+    --vis-color25: #5c003b !important;
+    --vis-color26: #6c002a !important;
+    --vis-color27: #7c0019 !important;
+    --vis-color28: #8b0008 !important;
+    --vis-color29: #9b0007 !important;
 }

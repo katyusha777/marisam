@@ -1,0 +1,8 @@
+
+.nav-topleft-buttons a:hover {
+  color: var(--secondary-color);
+}
+
+.nav-topleft-buttons a.active {
+  border-top: 5px solid var(--secondary-color);
+}
