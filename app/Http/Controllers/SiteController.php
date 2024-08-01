@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnnualReport;
 use App\Models\Article;
 use App\Models\Page;
+use App\Models\Timeline;
 
 final class SiteController extends Controller {
     public function page(string $slug) {
@@ -12,6 +14,14 @@ final class SiteController extends Controller {
         }
 
         return view('pages.'.$slug);
+    }
+
+    public function timeline() {
+        return view('pages.timeline', ['timelines' => Timeline::query()->orderBy('year')->get()]);
+    }
+
+    public function annualReport() {
+        return view('pages.annual_reports', ['reports' => AnnualReport::all()]);
     }
 
     public function articles() {

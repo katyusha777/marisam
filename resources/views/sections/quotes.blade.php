@@ -1,10 +1,10 @@
 <!-- resources/views/components/quotes.blade.php -->
-<div id="app-quotes" style="min-height: 400px;" class="relative">
+<div id="app-quotes" style="min-height: 400px;overflow:hidden;" class="relative">
     @foreach(App\Models\Quote::all() as $quote)
         <article class="testimonial hidden" style="margin-bottom:0;border-radius:0; position: absolute; top: 0; left: 0; right: 0;">
             <div class="inner flex items-center">
-                <div class="photo">
-                    <img src="/storage/{{ $quote->author_image }}" width="300" height="300" alt="Image alt text" loading="lazy">
+                <div>
+                    <div class="bg-cover w-64 h-64 bg-center" style="background-image: url(/storage/{{ $quote->author_image }})"></div>
                 </div>
                 <div class="text ml-4">
                     <p>{{ $quote->text }}</p>
@@ -29,7 +29,7 @@
                 }
                 element.style.opacity = opacity;
                 opacity -= 0.1;
-            }, 50);
+            }, 300);
         }
 
         function fadeIn(element) {
@@ -41,7 +41,7 @@
                 }
                 element.style.opacity = opacity;
                 opacity += 0.1;
-            }, 50);
+            }, 300);
         }
 
         function showNextQuote() {
@@ -50,7 +50,7 @@
                 index = (index + 1) % quotes.length;
                 fadeIn(quotes[index]);
             }
-            setTimeout(showNextQuote, 3000);
+            setTimeout(showNextQuote, 15000);
         }
 
         // Initial setup to ensure all quotes are hidden and the first one is visible
@@ -59,6 +59,6 @@
         });
         fadeIn(quotes[index]);
 
-        showNextQuote();
+        setTimeout(showNextQuote, 15000);
     });
 </script>

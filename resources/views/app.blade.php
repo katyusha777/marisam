@@ -18,62 +18,13 @@ $isHome = request()->segment(1) == ''
     <link href="/style/basics.css" rel="stylesheet"/>
     <link href="/style/scss/app.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     @livewireStyles
 
     <link rel="stylesheet" href="/vue/app.css">
-
-
     <script src="/vue/app.js" defer></script>
-    <style>
-        .grid {
-            width:100%
-        }
-
-        #vueApp {
-            max-width: 920px;
-            margin: auto;
-        }
-
-        #vueApp.unset-width {
-            max-width: unset;
-        }
-
-        #vueApp .carousel-slide .meta h2 {
-            font-size: 18px;
-            text-shadow: 0 0 BLACK;
-        }
-
-        .prisoner .info {
-            margin-left: 0 !important;
-
-        }
-
-        .prisoner .text-left p {
-            font-size: 16px;
-            line-height: 23px;
-            margin-bottom: 20px;
-        }
-
-        .prisoner .image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ant-select-dropdown {
-            z-index: 99999;
-        }
-
-        #filters .ant-select-selector .ant-select-selection-search-input {
-            border:none;
-            outline:none;
-        }
-
-        #filters, .prisoner {
-            width:unset !important;
-        }
-    </style>
 </head>
-<body @if ($isHome) class="home-page" @endif>
+<body class="page-{{request()->segment(1)}} @if ($isHome) home-page @endif">
 
 @include('layout.nav_desktop')
 @include('layout.nav_mobile')
@@ -110,6 +61,7 @@ $isHome = request()->segment(1) == ''
 </script>
 @include('layout.footer')
 
+<script src="/js/timeline.js"></script>
 <script src="/js/nav.js"></script>
 @livewireScripts
 </body>

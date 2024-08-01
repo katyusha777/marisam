@@ -1,0 +1,66 @@
+.video-bg-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, #000, transparent);
+  height: 130px;
+}
+
+.site-footer-social a:hover {
+color:#5660fe !important;
+}
+
+
+#vueApp .ant-radio-group label span {
+  font-family: Verlag, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.grid {
+  width:100%
+}
+
+#vueApp {
+  max-width: 920px;
+  margin: auto;
+}
+
+#vueApp.unset-width {
+  max-width: unset;
+}
+
+#vueApp .carousel-slide .meta h2 {
+  font-size: 18px;
+  text-shadow: 0 0 BLACK;
+}
+
+.prisoner .info {
+  margin-left: 0 !important;
+
+}
+
+.prisoner .text-left p {
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+
+.prisoner .image img {
+  width: 100%;
+  height: auto;
+}
+
+.ant-select-dropdown {
+  z-index: 99999;
+}
+
+#filters .ant-select-selector .ant-select-selection-search-input {
+  border:none;
+  outline:none;
+}
+
+#filters, .prisoner {
+  width:unset !important;
+}
