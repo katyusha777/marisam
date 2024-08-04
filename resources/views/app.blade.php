@@ -24,7 +24,6 @@ $isHome = request()->segment(1) == ''
     @livewireStyles
 
     <link rel="stylesheet" href="/vue/app.css">
-    <script src="/js/leaflet_cluster/leaflet.markercluster.js" crossorigin=""></script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/vue/app.js" defer></script>

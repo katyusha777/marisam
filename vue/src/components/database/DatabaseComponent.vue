@@ -65,4 +65,4 @@ watch(filterObject, (newValue, oldValue) => {
     </div>
   </section>
 </template>
- 
+
