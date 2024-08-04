@@ -1,150 +1,73 @@
 <script setup lang="ts">
 import { Position } from '@unovis/ts'
 import { VisAxis, VisCrosshair, VisStackedBar, VisTooltip, VisXYContainer } from '@unovis/vue'
-import useAirtable from "@/composables/useAirtable";
-import {ref} from "vue";
+import {defineProps, ref, watch} from "vue";
 import {PrisonerRecord} from "@/@types/types";
+import {useChart} from "@/composables/useChart";
 
-const { records, fetchRecords, aggregateCounts, sumCounts } = useAirtable();
-await fetchRecords();
-
-/** ======================================== **/
-
-
- type FormatConfig = {
-  format: any;
-  color: string;
-  icon: string;
-  label: string;
+interface Props {
+  records: PrisonerRecord[]
 }
 
-
-type TDataValue = Record<string, Record<number, number>>
+const props = defineProps<Props>()
+type FormatConfig = { format: any, color: string, icon: string, label: string  }
 type TDataKeys = 'race' | 'gender' | 'ideology' | 'affiliation'
-
 const chartKeys = ['race', 'gender', 'ideology', 'affiliation']
 const activeFilterKey = ref('race')
+const { initialiseChartData, prepareData, generateLabels, transformData } = useChart()
+const height = 450
 
-const data: Record<TDataKeys, TDataValue> = {
-  race: {},
-  gender: {},
-  ideology: {},
-  affiliation: {}
-}
+initialiseChartData(props.records)
 
-
-const setDataValue = (key: TDataKeys, value: string, years: Array<number>) => {
-  if(!value) return false
-  if(typeof data[key][value] === 'undefined') data[key][value] = {}
-  years.forEach((year: number) => {
-    if(typeof data[key][value][year] === 'undefined') data[key][value][year] = 0
-    data[key][value][year]++
-  })
-}
-
-records.value.forEach((record: PrisonerRecord) => {
-  const yearsInPrison = record['Years Spent In Prison']
-  const race = record.Race
-  const gender = record.Gender
-  const affiliation = record.Affiliation
-  const ideology = record.Ideologies ? record.Ideologies[0] : null
-
-  if(!yearsInPrison) return
-  const years: Array<number> = []
-  yearsInPrison.forEach((year: string) => {
-    years.push(parseInt(year))
-  })
-
-  if(!years) return false
-  setDataValue('race', race, years)
-  setDataValue('gender', gender, years)
-  setDataValue('affiliation', affiliation, years)
-  if(ideology) setDataValue('ideology', ideology, years)
-})
-
-
-const prepareData = (dataKey: TDataKeys): {series: any, eras: any} => {
-  const series: any = [];
-
-  const erasUnsorted: Array<number> = []
-  Object.keys(data[dataKey]).forEach((key: string) => {
-    Object.keys(data[dataKey][key]).forEach((eraNumber: string) => {
-      erasUnsorted.push(parseInt(eraNumber))
-    })
-  })
-
-  const eras = erasUnsorted
-      .filter((value, index, self) => self.indexOf(value) === index)
-      .sort((a, b) => a - b);
-
-
-  Object.keys(data[dataKey]).forEach((key: string) => {
-    const seriesSubData: Array<number> = []
-    eras.forEach((era: number) => {
-      const count = data[dataKey][key][era] ?? 0
-      seriesSubData.push(count)
-    })
-
-    series.push({name: key, data: seriesSubData})
-  })
-
-  return { series, eras }
-}
-
-
-type TransformedData = Record<string, number | string>;
-
-function transformData(input: Record<string, any[]>): TransformedData[] {
-  const { series, eras } = input;
-  return eras.map((year: any, index: any) => {
-    const dataPoint: TransformedData = { year };
-    series.forEach(({ name, data }) => {
-      dataPoint[name] = data[index];
-    });
-    return dataPoint;
-  });
-}
-
-function generateLabels(series: any[]): FormatConfig[] {
-  return series.map((item, index) => ({
-    format: item.name,
-    color: `var(--vis-color${index})`,
-    icon: 'bookmark-fill',
-    label: item.name,
-  }));
-}
-
-
-const preparedData = {
+const preparedData = ref({
   race: prepareData('race'),
   gender: prepareData('gender'),
   ideology: prepareData('ideology'),
   affiliation: prepareData('affiliation'),
-}
+})
 
-/** ======================================== **/
+const labels = ref<any>(generateLabels(preparedData.value.race.series))
+const chartData = ref<any>(transformData(preparedData.value.race))
 
-const labels = ref<any>(generateLabels(preparedData.race.series))
-const chartData = ref<any>(transformData(preparedData.race))
+watch(() => props.records, (newRecords, oldRecords) => {
+  initialiseChartData(props.records)
+
+  preparedData.value = {
+    race: prepareData('race'),
+    gender: prepareData('gender'),
+    ideology: prepareData('ideology'),
+    affiliation: prepareData('affiliation'),
+  }
+
+  const key = activeFilterKey.value ?? 'race'
+   labels.value = generateLabels(preparedData.value[key].series)
+   chartData.value = transformData(preparedData.value[key])
+}, { deep: true });
+
 
 function setChartData(key: TDataKeys) {
   activeFilterKey.value = key
-  labels.value = generateLabels(preparedData[key].series)
-  chartData.value = transformData(preparedData[key])
+  labels.value = generateLabels(preparedData.value[key].series)
+  chartData.value = transformData(preparedData.value[key])
 }
 
-const height = 450
 
 function getIcon(f: any): string {
-  return `<span class="bi bi-${f.icon}" style="background:${f.color}; color:${f.color}; margin:0 4px"></span>${f.label}\t`
+  return `<span class="bi bi-${f.icon}" style="background:${f.color}; color:${f.color};margin:0 4px;position: relative;top:2px; height: 16px;overflow: hidden;border-radius: 3px;display: inline-block;"></span>${f.label}\t`
 }
 
 function tooltipTemplate(d: Record<string, number>): string {
+  let total = 0
+  Object.keys(d).forEach((key: string) => {
+    if(key.toLocaleLowerCase() !== 'year') total += d[key]
+  })
+
+  console.log(d)
   const dataLegend = labels.value.filter((f: FormatConfig) => d[f.format] > 0)
       .reverse()
       .map((f: FormatConfig) => `<div><div style="margin-top: .35rem">${getIcon({ ...f, label: d[f.format] })} ${f.label}</div>`)
       .join('</div>')
-  return `<div><b>${d.year}</b>: ${dataLegend}</div>`
+  return `<div><b>${d.year} | Total ${total}</b>: ${dataLegend}</div>`
 }
 </script>
 
@@ -153,7 +76,7 @@ function tooltipTemplate(d: Record<string, number>): string {
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 
    <nav class="bg-black">
-     <div class="container flex justify-between py-6">
+     <div class="container flex justify-between pb-6">
        <div
            v-for="key  in chartKeys"
            @click="() => setChartData(key as TDataKeys)"

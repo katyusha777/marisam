@@ -1,14 +1,11 @@
 <template>
-  <section id="vueApp" class="unset-width">
+  <section id="vueApp" class="unset-width" style="background: #000">
     <Suspense>
-      <GraphComponent/>
-    </Suspense>
-    <Suspense>
-      <NumbersComponent/>
+      <VisualisationComponent/>
     </Suspense>
   </section>
 </template>
 <script setup lang="ts">
-import GraphComponent from "@/components/visualisation/GraphComponent.vue";
-import NumbersComponent from "@/components/visualisation/NumbersComponent.vue";
+
+import VisualisationComponent from "@/components/visualisation/VisualisationComponent.vue";
 </script>

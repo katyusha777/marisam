@@ -17,11 +17,16 @@ $isHome = request()->segment(1) == ''
     <link href="/style/nav.css" rel="stylesheet"/>
     <link href="/style/basics.css" rel="stylesheet"/>
     <link href="/style/scss/app.css" rel="stylesheet"/>
+
+
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     @livewireStyles
 
     <link rel="stylesheet" href="/vue/app.css">
+    <script src="/js/leaflet_cluster/leaflet.markercluster.js" crossorigin=""></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/vue/app.js" defer></script>
 </head>
 <body class="page-{{request()->segment(1)}} @if ($isHome) home-page @endif">

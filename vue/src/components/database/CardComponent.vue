@@ -8,8 +8,8 @@ interface Props {
   record: PrisonerRecord
 }
 
-const showCases = ref<boolean>(false)
 const props = defineProps<Props>()
+const showCases = ref<boolean>(false)
 
 
 const heading4 = 'border-b border-white border-dashed border-opacity-50 my-3 pb-2 text-lg uppercase font-bold text-left'

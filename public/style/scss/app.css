@@ -240,6 +240,32 @@ body.page-history main.container {
   width: 100%;
 }
 
+.timeline-menu {
+  position: fixed;
+  top: 128px;
+  background: rgba(0, 0, 0, 0.831372549);
+  left: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+.timeline-menu .year {
+  cursor: pointer;
+  position: relative;
+}
+.timeline-menu .year.active:before {
+  content: "";
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+}
+
 .timeline {
   display: flex;
   margin: 0 auto;

@@ -1,4 +1,34 @@
+
+$(document).ready(function () {
+    // Function to update active year-select
+    function updateActiveYear() {
+        $('.timeline-item').each(function () {
+            const itemTop = $(this).offset().top;
+            const windowTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+
+            if (itemTop < windowTop + windowHeight / 2) {
+                const year = $(this).data('year');
+                $('.year-select').removeClass('active');
+                $(`.year-select[data-year="${year}"]`).addClass('active');
+            }
+        });
+    }
+
+    // Initial update on page load
+    updateActiveYear();
+
+    // Update on scroll
+    $(window).scroll(updateActiveYear);
+});
+
 (function($) {
+
+    $('.year-select').on('click', function() {
+        const year = $(this).data('year')
+        $(`#timeline-year-${year}`).get(0).scrollIntoView({behavior: 'smooth'});
+    })
+
     $.fn.timeline = function() {
         var selectors = {
             id: $(this),
@@ -24,7 +54,7 @@
                 min = $(this).offset().top - 200;
                 max = $(this).height() + $(this).offset().top ;
                 var that = $(this);
-                if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                if (i === itemLength - 2 && pos > min + $(this).height() / 2) {
                     selectors.item.removeClass(selectors.activeClass);
                     selectors.id.css(
                         "background-image",

@@ -19,6 +19,8 @@ export interface Prisoner {
     Website?: any
     Facebook?: any
     Affiliation: any
+    latitude: number
+    longitude: number
     'Years Spent In Prison': Array<string>
     Year?: number
     imprisonedFor: number

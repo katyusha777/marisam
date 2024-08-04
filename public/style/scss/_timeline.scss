@@ -10,6 +10,37 @@ body.page-history {
   }
 }
 
+.timeline-menu {
+  position: fixed;
+  top: 128px;
+  background: #000000d4;
+  left: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+
+  .year {
+    cursor: pointer;
+    position:relative;
+
+    &.active {
+
+      &:before {
+        content: "";
+        display:block;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        height: 3px;
+        background: #fff;
+        position: absolute;
+      }
+    }
+  }
+}
+
 $content-font: 'Verlag, sans-serif';
 $heading-font: 'Verlag, sans-serif';
 $timeline-width:700px;
