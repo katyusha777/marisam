@@ -7,4 +7,12 @@
 @import "footer";
 @import "quotes";
 
+#map-app {
+    @import "map";
+}
+
+
+#map_faq {
+    @import "map_faq";
+}
 

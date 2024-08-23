@@ -64,3 +64,19 @@ color:#5660fe !important;
 #filters, .prisoner {
   width:unset !important;
 }
+
+
+.page-map .search-container {
+  input#query {
+    height: 50px
+  }
+
+  li {
+    list-style: none;
+    padding:1rem 1rem;
+  }
+}
+
+.page-map .container {
+  width: 100vw !important;
+}

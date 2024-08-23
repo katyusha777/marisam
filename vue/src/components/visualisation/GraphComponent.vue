@@ -67,7 +67,7 @@ function tooltipTemplate(d: Record<string, number>): string {
       .reverse()
       .map((f: FormatConfig) => `<div><div style="margin-top: .35rem">${getIcon({ ...f, label: d[f.format] })} ${f.label}</div>`)
       .join('</div>')
-  return `<div><b>${d.year} | Total ${total}</b>: ${dataLegend}</div>`
+  return `<div><b>${d.year} | Total ${total}</b> ${dataLegend}</div>`
 }
 </script>
 

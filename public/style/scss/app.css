@@ -69,6 +69,18 @@
   width: unset !important;
 }
 
+.page-map .search-container input#query {
+  height: 50px;
+}
+.page-map .search-container li {
+  list-style: none;
+  padding: 1rem 1rem;
+}
+
+.page-map .container {
+  width: 100vw !important;
+}
+
 .callout {
   background-image: url("/images/callout-bg.jpg");
   position: relative;
@@ -1384,6 +1396,380 @@ body.page-history main.container {
   src: url("https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-book-webfont.woff2") format("woff2"), url("https://nationalpoliticalprisonercoalition.org/verlag-font/verlag-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+#map-app {
+  /* .pswp img {
+      max-width: 1600px !important;
+      -o-object-fit: contain;
+      object-fit: contain;
+      transform: translate3d(130px, 100px, 0px) scale(1);
+  } */
+}
+#map-app #map, #map-app .map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+#map-app p {
+  line-height: 18px;
+}
+#map-app h1, #map-app h2, #map-app h3, #map-app h4, #map-app h5, #map-app div, #map-app span, #map-app p {
+  font-family: "Roboto", sans-serif;
+}
+#map-app .search-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  height: 100%;
+  width: 300px;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5176470588);
+  box-shadow: 0px 0px 0.5rem #555;
+  padding: 0.5rem;
+  color: #fff;
+}
+#map-app .list-group {
+  border-radius: 0px;
+}
+#map-app .list-group-item {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border-color: #fff transparent transparent;
+  border-bottom: 1px dotted #b8b8b8;
+  border-radius: 0px;
+}
+#map-app .info-content-wrapper {
+  scrollbar-color: rgba(63, 63, 63, 0.5) transparent;
+  scrollbar-width: thin;
+  z-index: 2;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 0;
+  /* height: calc(100vh - 70px); */
+  /* top: 10px; */
+  width: 300px;
+  height: 442px;
+  border-radius: 4px;
+  background: #000;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+  color: #fff;
+  /* width: 100%; */
+  display: none;
+}
+#map-app .control-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  padding: 0.5rem;
+  align-items: center;
+}
+#map-app #vessel-info {
+  line-height: 17px;
+}
+#map-app .control-wrapper #count {
+  margin: 0 10px;
+}
+#map-app .control-wrapper .btn {
+  color: #fff;
+  display: inline;
+  width: 79px;
+  height: 33px;
+  line-height: 23px;
+  padding: 0 0px;
+}
+#map-app .control-wrapper .btn:after {
+  display: none;
+}
+#map-app figure {
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+}
+#map-app figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+#map-app header {
+  z-index: 1;
+  position: sticky;
+  top: -18px;
+  margin-bottom: 0px;
+  padding: 5px 10px 5px;
+  background: #000;
+  /* box-shadow: 0 0 1px 1px rgba(0, 55, 85, .5); */
+}
+#map-app article {
+  position: relative;
+  background: #000;
+  font-size: 13px;
+  color: #fff;
+  height: 100%;
+  margin-top: 5px;
+  overflow-y: auto;
+}
+#map-app .status {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px 7px 6px;
+  background: rgba(133, 133, 133, 0.633);
+  border-radius: 3px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+}
+#map-app section {
+  /* padding:10px; */
+  margin-top: 10px;
+  padding: 0 5px;
+}
+#map-app .title-section {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin: 1rem 0px;
+}
+#map-app section .title {
+  font-weight: 600;
+}
+#map-app h5 {
+  text-transform: uppercase;
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+#map-app h2 {
+  margin: 5px 0px;
+  font-size: 16px;
+}
+#map-app .images-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+#map-app .images-div img {
+  min-width: 150px;
+  width: 100%;
+}
+#map-app .info-close-wrapper {
+  z-index: 5;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+#map-app .info-close {
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding: 16px;
+  background: rgba(66, 66, 66, 0.56);
+  line-height: 0;
+  z-index: 5;
+}
+#map-app .info-close svg {
+  width: 13px;
+  height: 13px;
+  stroke: #fff;
+}
+#map-app .map-nav {
+  z-index: 55;
+  /* position: absolute; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #ffffff;
+}
+#map-app .map-nav__back {
+  z-index: 1;
+  position: relative;
+  float: left;
+  display: block;
+  height: 60px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  /* background: url(logo_2020.png) #ffffff;
+  background-size: 145px 45px;
+  background-repeat: no-repeat;
+  background-position: left 15px bottom 18px; */
+}
+#map-app .map-nav__back span {
+  font: 0/0 a;
+  line-height: 0;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+  border: 0 none;
+  width: 0;
+}
+#map-app .map-nav__page-link {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: calc(100% - 105px);
+}
+#map-app .mapboxgl-ctrl-logo, #map-app .mapboxgl-ctrl-attrib {
+  display: none !important;
+}
+#map-app .home-btn {
+  background-color: #fff;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 29px;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  width: 29px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid #666; */
+}
+#map-app .home-btn:focus, #map-app .home-btn:hover {
+  background-color: #fff !important;
+}
+#map-app p {
+  margin: 5px;
+}
+@media screen and (max-width: 480px) {
+  #map-app {
+    /* .pswp img {
+        max-width: 1600px !important;
+        -o-object-fit: contain;
+        object-fit: contain;
+        transform: translate3d(0px, 100px, 0px) scale(1);
+    } */
+  }
+  #map-app .map-nav {
+    width: 100%;
+  }
+  #map-app .map-nav__back {
+    /* width: 150px;
+    height: 60px;
+    background-size: 100px 35px; */
+  }
+}
+
+#map_faq .container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+#map_faq .accordion {
+  margin-top: 1rem;
+}
+#map_faq .accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+#map_faq .accordion .accordion-item button[aria-expanded=true] {
+  border-bottom: 1px solid #5660fe;
+}
+#map_faq .accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+#map_faq .accordion button:hover, #map_faq .accordion button:focus {
+  cursor: pointer;
+  color: #5660fe;
+}
+#map_faq .accordion button:hover::after, #map_faq .accordion button:focus::after {
+  cursor: pointer;
+  color: #5660fe;
+  border: 1px solid #5660fe;
+}
+#map_faq .accordion button .accordion-title {
+  color: #FFF;
+  padding: 1em 1.5em 1em 0;
+  font-size: 1.5rem;
+}
+#map_faq .accordion button .icon {
+  display: inline-block;
+  color: #FFF;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+#map_faq .accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+#map_faq .accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+#map_faq .accordion button[aria-expanded=true] {
+  color: #5660fe;
+}
+#map_faq .accordion button[aria-expanded=true] .icon::after {
+  width: 0;
+}
+#map_faq .accordion button[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+#map_faq .accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+#map_faq .accordion .accordion-content p {
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
 }
 
 /*# sourceMappingURL=app.css.map */

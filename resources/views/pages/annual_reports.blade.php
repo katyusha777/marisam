@@ -13,9 +13,9 @@
 
             @foreach($reports as $report)
                 <div class="article-item mb-6">
-                    <a href="/storage/{{$report->file}}" class="h-56 block overflow-hidden justify-center items-center bg-center bg-cover" style="background-image: url('/storage/{{$report->image}}')"></a>
-                    <div class="line"></div>
-                    <a class="text-xl text-white" href="/storage/{{$report->file}}">{{$report->title}}</a>
+                    <a href="/storage/{{$report->file}}" class="h-[410px] rounded bg-no-repeat block overflow-hidden justify-center items-center bg-center bg-cover" style="background-image: url('/storage/{{$report->image}}')"></a>
+                    <div class="line my-2"></div>
+                    <a class="text-xl text-white text-center block" href="/storage/{{$report->file}}">{{$report->title}}</a>
                 </div>
             @endforeach
         </div>

@@ -16,7 +16,7 @@ $isHome = request()->segment(1) == ''
     <link href="/fonts/flood-std.css" rel="stylesheet"/>
     <link href="/style/nav.css" rel="stylesheet"/>
     <link href="/style/basics.css" rel="stylesheet"/>
-    <link href="/style/scss/app.css" rel="stylesheet"/>
+    <link href="/style/scss/app.css?v={{md5(now())}}" rel="stylesheet"/>
 
 
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
@@ -27,6 +27,8 @@ $isHome = request()->segment(1) == ''
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/vue/app.js" defer></script>
+
+    @yield('head')
 </head>
 <body class="page-{{request()->segment(1)}} @if ($isHome) home-page @endif">
 

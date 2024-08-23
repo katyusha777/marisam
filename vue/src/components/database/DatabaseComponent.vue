@@ -58,7 +58,6 @@ watch(filterObject, (newValue, oldValue) => {
       <input type="search" placeholder="Search by name" v-model="nameSearch"/>
 
       <FiltersComponent class="mb-12" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
-      <DatabaseMap :records="filteredRecords"/>
       <template v-for="record in filteredRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
