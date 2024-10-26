@@ -17,7 +17,7 @@ final class Faq extends Model {
     /**
      * @return Collection<Faq>|Faq[]
      */
-    public static function getAllMapFaq(): Collection {
-        return self::where('type', 'map')->get();
+    public static function getFaqsByType(string $type): Collection {
+        return self::where('type', $type)->get();
     }
 }

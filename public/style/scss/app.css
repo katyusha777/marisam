@@ -1417,12 +1417,6 @@ body.page-history main.container {
   font-size: 13px;
   line-height: 1.5;
 }
-#map-app p {
-  line-height: 18px;
-}
-#map-app h1, #map-app h2, #map-app h3, #map-app h4, #map-app h5, #map-app div, #map-app span, #map-app p {
-  font-family: "Roboto", sans-serif;
-}
 #map-app .search-container {
   position: absolute;
   top: 0px;
@@ -1436,8 +1430,36 @@ body.page-history main.container {
   padding: 0.5rem;
   color: #fff;
 }
+#map-app .search-input {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+#map-app .search-input input {
+  min-height: calc(1.5em + 0.5rem + 2px) !important;
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 0.25rem !important;
+  height: 36px !important;
+  width: 100%;
+  color: #000;
+}
+#map-app .search-input .btn {
+  padding: 0.25rem !important;
+  font-size: 0.875rem !important;
+  border-radius: 2px;
+  position: absolute;
+  right: 9px;
+  height: 35px;
+  width: 31px;
+  top: 8px;
+}
+#map-app .search-input .btn::after {
+  display: none !important;
+}
 #map-app .list-group {
   border-radius: 0px;
+  list-style: none;
 }
 #map-app .list-group-item {
   cursor: pointer;
@@ -1446,6 +1468,8 @@ body.page-history main.container {
   border-color: #fff transparent transparent;
   border-bottom: 1px dotted #b8b8b8;
   border-radius: 0px;
+  font-size: 15px !important;
+  line-height: 18px !important;
 }
 #map-app .info-content-wrapper {
   scrollbar-color: rgba(63, 63, 63, 0.5) transparent;
@@ -1468,28 +1492,18 @@ body.page-history main.container {
   display: none;
 }
 #map-app .control-wrapper {
-  display: flex;
-  justify-content: space-evenly;
+  display: flex !important;
+  justify-content: space-between;
   width: 80%;
   padding: 0.5rem;
   align-items: center;
-}
-#map-app #vessel-info {
-  line-height: 17px;
-}
-#map-app .control-wrapper #count {
-  margin: 0 10px;
+  font-size: 12px !important;
 }
 #map-app .control-wrapper .btn {
   color: #fff;
-  display: inline;
-  width: 79px;
-  height: 33px;
-  line-height: 23px;
-  padding: 0 0px;
-}
-#map-app .control-wrapper .btn:after {
-  display: none;
+  color: #fff;
+  padding: 0.5rem !important;
+  font-size: 10px !important;
 }
 #map-app figure {
   padding: 0px;
@@ -1510,7 +1524,7 @@ body.page-history main.container {
   background: #000;
   /* box-shadow: 0 0 1px 1px rgba(0, 55, 85, .5); */
 }
-#map-app article {
+#map-app article#vessel-info {
   position: relative;
   background: #000;
   font-size: 13px;
@@ -1518,6 +1532,8 @@ body.page-history main.container {
   height: 100%;
   margin-top: 5px;
   overflow-y: auto;
+  font-size: 15px !important;
+  line-height: 20px !important;
 }
 #map-app .status {
   display: inline-block;
@@ -1654,6 +1670,9 @@ body.page-history main.container {
 }
 #map-app p {
   margin: 5px;
+}
+#map-app .d-flex {
+  display: flex !important;
 }
 @media screen and (max-width: 480px) {
   #map-app {

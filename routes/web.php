@@ -14,5 +14,6 @@ Route::controller(SiteController::class)
         Route::get('history', 'timeline');
         Route::get('annual-report', 'annualReport');
         Route::get('map', 'map');
+        Route::get('faq', 'faq');
         Route::get('/{slug}', 'page');
     });

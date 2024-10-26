@@ -65,7 +65,7 @@
 
 <script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGF1ZGk5NyIsImEiOiJjanJtY3B1bjYwZ3F2NGFvOXZ1a29iMmp6In0.9ZdvuGInodgDk7cv-KlujA';
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0eXVzaGE3Nzc3IiwiYSI6ImNtMDV2dHJ2OTBxcmoyanNoZTgzZG1xbnIifQ.Y7-xNyxyEwAHD_5oZmDB-w';
     const map = new mapboxgl.Map({
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -333,16 +333,32 @@
     }
 
     async function loadPrisoners() {
-        let request = await fetch(`https://marisam-airtable.patrickdeamorim.workers.dev/`)
+        let requestData = await fetch(`https://marisam-airtable.patrickdeamorim.workers.dev/`)
             .then(res => res.json());
 
-        const data = []
-        request.forEach((item) => {
-            if(item['In Custody'] === true) data.push(item)
-        })
+        let data = []
+        requestData.forEach((item) => {
+            if(!item["_Physical address"] || !item["_Latitude"] || !item["_Longitude"]) return false
 
-        console.log(data)
+            if(!item.cases.length) {
+                item.cases = []
+                item.cases[0] = {}
+            }
+
+            item.cases[0]["Physical address"] = item["_Physical address"]
+            item.cases[0].latitude = item["_Latitude"]
+            item.cases[0].longitude = item["_Longitude"]
+
+            console.log(item)
+            data.push(item)
+        })
+        // console.log(data);
+        window.allPrisoners = [...data];
+        let prisonersGeocode = await geocodeResults(window.allPrisoners);
+        console.log(prisonersGeocode);
+
         window.prisoners = data.filter(entry => (entry.latitude && entry.longitude));
+        window.prisoners = [...window.prisoners, ...prisonersGeocode];
 
         let prisonersFc = data.filter(entry => (entry.latitude && entry.longitude)).map(entry => {
             return {
@@ -351,6 +367,8 @@
                 "properties":{...entry}
             }
         });
+
+
 
         map.getSource("prisoners").setData({ "type":"FeatureCollection", "features":[...prisonersFc]});
         renderListItems(window.prisoners)
@@ -364,6 +382,37 @@
                 callback.apply(null, args);
             }, wait);
         };
+    }
+
+    const geocodeResults = async (prisoners) => {
+        var targetPrisoners = prisoners.filter(prisoner => prisoner.cases.length).filter(lc => !lc.latitude);
+        targetPrisoners = targetPrisoners.filter(prisoner => prisoner.cases[0]["Physical address"]);
+        let requests = targetPrisoners.map(prisoner => {
+            let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${prisoner.cases[0]["Physical address"]}.json?limit=5&country=us&language=en-US&access_token=${mapboxgl.accessToken}`;
+
+            return fetch(url);
+        });
+
+        try {
+            let response = await Promise.all(requests).then(responses => Promise.all(responses.map(res => res.json())))
+            response.forEach((fc, i) => {
+                if(fc.features.length) {
+                    let [longitude, latitude] = fc.features[0].center;
+
+                    targetPrisoners[i] = {...targetPrisoners[i], new_lat:latitude, new_lng:longitude }
+                } else {
+
+                }
+
+            });
+
+            return targetPrisoners;
+            // console.log(response);
+        } catch (error) {
+            console.error(error);
+            return [];
+        }
+
     }
 
     const handleQueryInput = debounce((e) => {
@@ -520,8 +569,9 @@
     }
 
     map.addControl(new HomeControl(), "bottom-left");
-</script>
 
-    @include('sections.map_faq')
+    // https://tessadem.com/api/elevation?key=241e08998074b3df4b7048d3c6ec17c5c8b57f2a&locations=57.688709,11.976404
+</script>
+    @include('sections.faq', ['type'=>'map'])
 
 @endsection

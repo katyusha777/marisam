@@ -1,10 +1,9 @@
 @php use App\Models\Faq; @endphp
 <section id="map_faq">
-    <div class="container">
+    <div class="{{$type === 'map' ? 'container' : 'mt-8'}}">
         <h2 style="font-size: 2rem; font-weight: bold;">Frequently Asked Questions</h2>
         <div class="accordion">
-
-            @foreach(Faq::getAllMapFaq() as $faq)
+            @foreach(Faq::getFaqsByType($type) as $faq)
                 <div class="accordion-item">
                     <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">{{$faq->question}}</span><span class="icon" aria-hidden="true"></span></button>
                     <div class="accordion-content">

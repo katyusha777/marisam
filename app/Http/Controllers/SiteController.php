@@ -28,6 +28,10 @@ final class SiteController extends Controller {
         return view('pages.map');
     }
 
+    public function faq() {
+        return view('pages.faq');
+    }
+
     public function articles() {
         return view('articles', ['articles' => Article::all()]);
     }
